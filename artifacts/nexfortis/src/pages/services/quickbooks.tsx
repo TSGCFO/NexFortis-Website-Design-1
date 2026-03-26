@@ -1,6 +1,6 @@
 import { PageHero, Section, SectionHeader } from "@/components/ui-elements";
-import { SEO, ServiceSchema } from "@/components/seo";
-import { ArrowRight, Database, Wrench, ShieldAlert, CheckCircle2, DollarSign } from "lucide-react";
+import { SEO, ServiceSchema, BreadcrumbSchema } from "@/components/seo";
+import { ArrowRight, Database, Wrench, ShieldAlert, CheckCircle2, DollarSign, ClipboardList, Zap, FileCheck, Headphones } from "lucide-react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 
@@ -35,8 +35,13 @@ export default function QuickBooks() {
 
   return (
     <div>
-      <SEO title="QuickBooks Migration & Tools" description="Expert QuickBooks data migration, file recovery, and add-on tools. Certified ProAdvisor team with 100% accuracy guarantee." path="/services/quickbooks" />
-      <ServiceSchema name="QuickBooks Migration & Tools" description="QuickBooks data migration, recovery, and add-on tools for Canadian businesses." />
+      <SEO title="QuickBooks Migration, Recovery & Add-On Tools" description="Certified QuickBooks ProAdvisor team offering 100% accuracy-guaranteed data migration from Sage, SAP, Xero, and more. File recovery, custom add-ons, and same-day service available." path="/services/quickbooks" />
+      <ServiceSchema name="QuickBooks Migration & Tools" description="QuickBooks data migration, file recovery, and custom add-on tools for Canadian businesses. Certified ProAdvisor team." url="https://nexfortis.com/services/quickbooks" />
+      <BreadcrumbSchema items={[
+        { name: "Home", url: "https://nexfortis.com/" },
+        { name: "Services", url: "https://nexfortis.com/services" },
+        { name: "QuickBooks Solutions", url: "https://nexfortis.com/services/quickbooks" },
+      ]} />
       <PageHero 
         title="QuickBooks Migration & Tools" 
         subtitle="Expert data migration, recovery services, and powerful add-on tools to supercharge your accounting."
@@ -96,6 +101,36 @@ export default function QuickBooks() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </Section>
+
+      <Section bg="white">
+        <SectionHeader
+          title="How Our Migration Process Works"
+          subtitle="A transparent, step-by-step process that gets your data into QuickBooks accurately and on time."
+          centered
+        />
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+          {[
+            { step: "01", icon: ClipboardList, title: "Assessment & Scoping", desc: "We review your existing data source, file structure, and volume to produce a detailed migration plan and accurate turnaround estimate." },
+            { step: "02", icon: Zap, title: "Secure Data Transfer", desc: "Your files are transferred to our secure environment using encrypted channels. We never store or share your financial data beyond the scope of the engagement." },
+            { step: "03", icon: FileCheck, title: "Migration & Verification", desc: "Our ProAdvisors perform the migration and run a full line-by-line reconciliation to confirm 100% data accuracy before delivery." },
+            { step: "04", icon: Headphones, title: "Delivery & Support", desc: "Your completed file is delivered on schedule. We include a post-delivery support window to answer questions and resolve any edge cases." },
+          ].map((item, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: i * 0.1 }}
+              className="relative bg-secondary p-8 rounded-2xl border border-border"
+            >
+              <span className="text-6xl font-display font-extrabold text-accent/10 absolute -top-4 -left-2" aria-hidden="true">{item.step}</span>
+              <item.icon className="w-8 h-8 text-accent mb-4 relative z-10 mt-6" aria-hidden="true" />
+              <h3 className="text-lg font-bold text-primary mb-3">{item.title}</h3>
+              <p className="text-muted-foreground leading-relaxed text-sm">{item.desc}</p>
+            </motion.div>
+          ))}
         </div>
       </Section>
 

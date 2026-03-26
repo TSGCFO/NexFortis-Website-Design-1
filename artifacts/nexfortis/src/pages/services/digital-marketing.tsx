@@ -1,5 +1,5 @@
 import { PageHero, Section, SectionHeader } from "@/components/ui-elements";
-import { SEO, ServiceSchema } from "@/components/seo";
+import { SEO, ServiceSchema, BreadcrumbSchema } from "@/components/seo";
 import { Globe, Server, Search, PenTool, BarChart, Settings, ArrowRight, CheckCircle2 } from "lucide-react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
@@ -23,8 +23,13 @@ export default function DigitalMarketing() {
 
   return (
     <div>
-      <SEO title="Digital Marketing & Web Presence" description="Full-service digital marketing: web design, hosting, SEO optimization, Google Ads, and content creation for Canadian businesses." path="/services/digital-marketing" />
-      <ServiceSchema name="Digital Marketing & Web Presence" description="Full-service digital marketing including web design, hosting, SEO, Google Ads, and content creation." />
+      <SEO title="Digital Marketing & Web Presence" description="Full-service digital marketing for Canadian businesses: custom web design, SEO optimization, Google Ads management, and content creation. Drive traffic and convert visitors." path="/services/digital-marketing" />
+      <ServiceSchema name="Digital Marketing & Web Presence" description="Full-service digital marketing including web design, hosting, SEO, Google Ads, and content creation for Canadian businesses." url="https://nexfortis.com/services/digital-marketing" />
+      <BreadcrumbSchema items={[
+        { name: "Home", url: "https://nexfortis.com/" },
+        { name: "Services", url: "https://nexfortis.com/services" },
+        { name: "Digital Marketing", url: "https://nexfortis.com/services/digital-marketing" },
+      ]} />
       <PageHero 
         title="Digital Marketing & Web Presence" 
         subtitle="Your digital storefront matters. We build, host, and optimize your online presence to attract and convert."

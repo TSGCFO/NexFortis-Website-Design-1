@@ -31,6 +31,7 @@ export function SEO({ title, description, path = "/", type = "website", image, n
       <meta property="og:url" content={fullUrl} />
       <meta property="og:image" content={ogImage} />
       <meta property="og:site_name" content={SITE_NAME} />
+      <meta property="og:locale" content="en_CA" />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
@@ -48,6 +49,7 @@ export function OrganizationSchema() {
     legalName: "17756968 Canada Inc.",
     url: "https://nexfortis.com",
     logo: "https://nexfortis.com/images/logo-original.png",
+    description: "NexFortis delivers end-to-end IT solutions for Canadian businesses including managed IT, Microsoft 365, QuickBooks migration, digital marketing, and workflow automation.",
     contactPoint: {
       "@type": "ContactPoint",
       telephone: "+1-800-555-0199",
@@ -74,12 +76,13 @@ export function OrganizationSchema() {
   );
 }
 
-export function ServiceSchema({ name, description }: { name: string; description: string }) {
+export function ServiceSchema({ name, description, url }: { name: string; description: string; url?: string }) {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Service",
     name,
     description,
+    url: url || "https://nexfortis.com/services",
     provider: {
       "@type": "Organization",
       name: "NexFortis IT Solutions",
@@ -89,6 +92,26 @@ export function ServiceSchema({ name, description }: { name: string; description
       "@type": "Country",
       name: "Canada",
     },
+    serviceType: "IT Services",
+  };
+
+  return (
+    <Helmet>
+      <script type="application/ld+json">{JSON.stringify(schema)}</script>
+    </Helmet>
+  );
+}
+
+export function BreadcrumbSchema({ items }: { items: { name: string; url: string }[] }) {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
   };
 
   return (
@@ -117,6 +140,10 @@ export function ArticleSchema({ title, description, datePublished, dateModified,
       "@type": "Organization",
       name: "NexFortis IT Solutions",
       logo: { "@type": "ImageObject", url: "https://nexfortis.com/images/logo-original.png" },
+    },
+    author: {
+      "@type": "Organization",
+      name: "NexFortis IT Solutions",
     },
   };
 

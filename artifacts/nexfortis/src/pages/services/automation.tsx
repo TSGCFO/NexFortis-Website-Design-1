@@ -1,6 +1,6 @@
 import { PageHero, Section, SectionHeader } from "@/components/ui-elements";
-import { SEO, ServiceSchema } from "@/components/seo";
-import { Zap, Code2, GitMerge, ArrowRight, CheckCircle2, Workflow, Bot, Layers } from "lucide-react";
+import { SEO, ServiceSchema, BreadcrumbSchema } from "@/components/seo";
+import { Zap, Code2, GitMerge, ArrowRight, CheckCircle2, Workflow, Bot, Layers, MessageCircle, FileCode, FlaskConical, Rocket } from "lucide-react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 
@@ -48,8 +48,13 @@ export default function AutomationSoftware() {
 
   return (
     <div>
-      <SEO title="Workflow Automation & Custom Software" description="Custom workflow automation, API integrations, and full-stack development. Power Automate, Zapier, and bespoke solutions." path="/services/automation-software" />
-      <ServiceSchema name="Workflow Automation & Custom Software" description="Custom workflow automation, API integrations, and full-stack web application development." />
+      <SEO title="Workflow Automation & Custom Software Development" description="Eliminate manual data entry with Power Automate, Zapier, and custom API integrations. NexFortis builds bespoke web applications and automated workflows for Canadian businesses." path="/services/automation-software" />
+      <ServiceSchema name="Workflow Automation & Custom Software" description="Custom workflow automation, API integrations, and full-stack web application development for Canadian businesses." url="https://nexfortis.com/services/automation-software" />
+      <BreadcrumbSchema items={[
+        { name: "Home", url: "https://nexfortis.com/" },
+        { name: "Services", url: "https://nexfortis.com/services" },
+        { name: "Workflow Automation", url: "https://nexfortis.com/services/automation-software" },
+      ]} />
       <PageHero 
         title="Workflow Automation & Custom Software" 
         subtitle="Eliminate manual busywork and build bespoke tools that run your business flawlessly."
@@ -131,6 +136,36 @@ export default function AutomationSoftware() {
       </Section>
 
       <Section bg="white">
+        <SectionHeader
+          title="How We Deliver Your Automation Project"
+          subtitle="A collaborative, low-risk delivery process from initial discovery through to production deployment and support."
+          centered
+        />
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+          {[
+            { step: "01", icon: MessageCircle, title: "Discovery Workshop", desc: "We map your current workflows, identify the highest-value automation opportunities, and define clear scope, KPIs, and success metrics." },
+            { step: "02", icon: FileCode, title: "Solution Design", desc: "We produce a detailed technical design — data flow diagrams, integration specs, and a prototype — so you know exactly what you're getting before we build." },
+            { step: "03", icon: FlaskConical, title: "Build & Test", desc: "Our developers build the solution in staged sprints with regular demos. Rigorous QA testing ensures everything works reliably before production." },
+            { step: "04", icon: Rocket, title: "Deploy & Optimize", desc: "We go live with your new automation, monitor performance, and continue to optimize based on real usage data. Ongoing support is available." },
+          ].map((item, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: i * 0.1 }}
+              className="relative bg-secondary p-8 rounded-2xl border border-border"
+            >
+              <span className="text-6xl font-display font-extrabold text-accent/10 absolute -top-4 -left-2" aria-hidden="true">{item.step}</span>
+              <item.icon className="w-8 h-8 text-accent mb-4 relative z-10 mt-6" aria-hidden="true" />
+              <h3 className="text-lg font-bold text-primary mb-3">{item.title}</h3>
+              <p className="text-muted-foreground leading-relaxed text-sm">{item.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </Section>
+
+      <Section bg="secondary">
         <SectionHeader title="Our Technology Stack" subtitle="We work with the best tools and platforms to deliver robust solutions." centered />
         <div className="flex flex-wrap justify-center gap-3 mt-12">
           {techStack.map((tech, i) => (

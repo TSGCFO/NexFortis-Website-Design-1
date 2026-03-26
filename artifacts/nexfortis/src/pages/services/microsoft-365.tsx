@@ -1,5 +1,5 @@
 import { PageHero, Section, SectionHeader } from "@/components/ui-elements";
-import { SEO, ServiceSchema } from "@/components/seo";
+import { SEO, ServiceSchema, BreadcrumbSchema } from "@/components/seo";
 import { Check, ShieldCheck, Mail, Users, MonitorSmartphone, ArrowRight, Cloud, Lock, Smartphone } from "lucide-react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
@@ -33,8 +33,13 @@ export default function Microsoft365() {
 
   return (
     <div>
-      <SEO title="Microsoft 365 Solutions" description="Authorized Microsoft partner for M365 deployment, email migration, Teams, Intune MDM, and enterprise security for Canadian businesses." path="/services/microsoft-365" />
-      <ServiceSchema name="Microsoft 365 Solutions" description="Microsoft 365 deployment, migration, management, and enterprise security." />
+      <SEO title="Microsoft 365 for Canadian Businesses" description="Microsoft Authorized Partner for M365 deployment: zero-downtime email migration, Teams & SharePoint setup, Intune MDM, and zero-trust security for Canadian businesses." path="/services/microsoft-365" />
+      <ServiceSchema name="Microsoft 365 Solutions" description="Microsoft 365 deployment, email migration, Teams, Intune MDM, and enterprise security for Canadian businesses." url="https://nexfortis.com/services/microsoft-365" />
+      <BreadcrumbSchema items={[
+        { name: "Home", url: "https://nexfortis.com/" },
+        { name: "Services", url: "https://nexfortis.com/services" },
+        { name: "Microsoft 365", url: "https://nexfortis.com/services/microsoft-365" },
+      ]} />
       <PageHero
         title="Microsoft 365 Solutions"
         subtitle="Empower your workforce with enterprise-grade productivity tools and zero-trust security."
