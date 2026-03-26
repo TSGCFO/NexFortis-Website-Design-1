@@ -3,10 +3,12 @@ import { Link } from "wouter";
 import {
   ShieldCheck, Monitor, Cloud, Database, Cog, LayoutDashboard,
   ArrowRight, CheckCircle2, Users, Award, Clock, Globe,
-  TrendingUp, Zap
+  TrendingUp, Zap, Building2, Briefcase, ShoppingCart,
+  Factory, Landmark, GraduationCap
 } from "lucide-react";
-import { Section, SectionHeader } from "@/components/ui-elements";
-import { SEO, OrganizationSchema } from "@/components/seo";
+import { useState } from "react";
+import { Section, SectionHeader, FAQItem } from "@/components/ui-elements";
+import { SEO, OrganizationSchema, FAQSchema } from "@/components/seo";
 
 const services = [
   {
@@ -65,7 +67,52 @@ const whyUs = [
   { title: "Canadian-Based, Privacy-First Support", desc: "Our team is local, our data handling complies with Canadian privacy standards (PIPEDA), and our response times reflect a business you can depend on." },
 ];
 
+const processSteps = [
+  { step: "01", icon: TrendingUp, title: "Discovery & Audit", desc: "We assess your current systems, goals, and gaps to build a strategy tailored to your business." },
+  { step: "02", icon: Zap, title: "Planning & Design", desc: "A detailed project plan with milestones, timelines, and clearly defined success metrics." },
+  { step: "03", icon: Cog, title: "Implementation", desc: "Our specialists execute the plan with minimal disruption to your daily operations." },
+  { step: "04", icon: CheckCircle2, title: "Support & Optimization", desc: "Post-launch monitoring, training, and ongoing optimization so your investment keeps growing." },
+];
+
+const homeFaqs = [
+  {
+    question: "What does a managed IT provider do?",
+    answer: "A managed IT provider like NexFortis handles all of your technology needs — from setting up and maintaining cloud infrastructure, managing cybersecurity, and providing helpdesk support, to planning long-term IT strategy. Instead of hiring a full in-house IT team, you get access to a complete team of specialists for a predictable monthly cost. We proactively monitor your systems, apply patches, manage backups, and ensure your business stays secure and productive.",
+  },
+  {
+    question: "How much does Microsoft 365 migration cost for a small business?",
+    answer: "The cost of Microsoft 365 migration depends on the number of users, the complexity of your existing email and file setup, and how much data needs to be transferred. At NexFortis, we offer transparent, flat-rate migration pricing with no hidden fees. Most small businesses (under 50 users) can expect a one-time migration fee plus the ongoing Microsoft 365 subscription. We include zero-downtime migration, data verification, and 30 days of post-migration support as standard.",
+  },
+  {
+    question: "Do you work with small businesses or only large enterprises?",
+    answer: "We work with businesses of every size — from five-person startups to 200+ seat enterprises. Our solutions are designed to scale with you. Whether you need a simple Microsoft 365 setup, a full QuickBooks migration, or a comprehensive managed IT plan, we tailor our recommendations to your current stage and budget. Many of our longest-running clients started as small businesses and grew with us.",
+  },
+  {
+    question: "What is a virtual CIO and do I need one?",
+    answer: "A virtual CIO (Chief Information Officer) provides the strategic technology leadership of a C-level executive without the full-time salary. If your business relies on technology but doesn't have a dedicated IT strategist, a virtual CIO from NexFortis can help you create a technology roadmap, evaluate vendors, optimize licensing costs, and ensure your IT investments align with your business goals. It's ideal for growing businesses that need expert guidance without the overhead.",
+  },
+  {
+    question: "How do you handle data security and Canadian privacy compliance?",
+    answer: "Data security and privacy are at the core of everything we do. As a Canadian-based IT provider, we ensure all our solutions comply with PIPEDA (Personal Information Protection and Electronic Documents Act) and provincial privacy regulations. We implement multi-layered security including endpoint protection, encrypted backups, multi-factor authentication, and regular security audits. Your data stays in Canada unless you explicitly choose otherwise.",
+  },
+  {
+    question: "Can you help migrate our accounting data to QuickBooks?",
+    answer: "Absolutely. We are certified QuickBooks ProAdvisors specializing in data migration from Sage, SAP, Xero, FreshBooks, and other accounting platforms. Our migration process includes a full data audit, field mapping, test migration, and validation to ensure 100% accuracy — backed by our money-back guarantee. We also offer same-day expedited migration for businesses that need to move quickly.",
+  },
+];
+
+const industries = [
+  { icon: Building2, name: "Healthcare & Clinics", desc: "PIPEDA-compliant infrastructure, EHR integrations, and secure patient data management for medical and dental practices across Canada." },
+  { icon: Briefcase, name: "Legal & Professional Services", desc: "Document management, Microsoft 365 deployments, and secure client portals for law firms, accounting practices, and consulting firms." },
+  { icon: ShoppingCart, name: "Retail & E-commerce", desc: "Inventory system integrations, POS connectivity, e-commerce platform management, and multi-channel data synchronization." },
+  { icon: Factory, name: "Manufacturing & Logistics", desc: "ERP integrations, warehouse management automation, supply chain visibility tools, and real-time production reporting dashboards." },
+  { icon: Landmark, name: "Finance & Accounting", desc: "QuickBooks migrations, financial reporting automation, audit preparation tools, and compliance-ready IT infrastructure." },
+  { icon: GraduationCap, name: "Non-Profit & Education", desc: "Donor management systems, grant tracking, Microsoft 365 for Education deployments, and budget-conscious IT strategies." },
+];
+
 export default function Home() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
   return (
     <div className="w-full">
       <SEO
@@ -74,6 +121,7 @@ export default function Home() {
         path="/"
       />
       <OrganizationSchema />
+      <FAQSchema faqs={homeFaqs} />
 
       <section className="relative min-h-[90vh] flex items-center justify-center bg-primary overflow-hidden pt-20">
         <div className="absolute inset-0 z-0" aria-hidden="true">
@@ -129,7 +177,7 @@ export default function Home() {
 
       <section className="py-12 bg-primary/95 border-b border-white/10" aria-label="Key statistics">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="flex flex-wrap justify-center items-center gap-0">
             {stats.map((stat, i) => (
               <motion.div
                 key={i}
@@ -137,11 +185,13 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: i * 0.08 }}
-                className="text-center"
+                className={`flex items-center gap-4 px-8 py-4 ${i < stats.length - 1 ? "border-r border-white/20" : ""} max-sm:border-r-0 max-sm:border-b max-sm:border-white/10 max-sm:w-1/2 max-sm:justify-center max-sm:py-5`}
               >
-                <stat.icon className="w-7 h-7 text-accent mx-auto mb-3" aria-hidden="true" />
-                <div className="text-3xl md:text-4xl font-display font-extrabold text-white mb-1">{stat.value}</div>
-                <p className="text-white/60 text-sm font-medium">{stat.label}</p>
+                <stat.icon className="w-6 h-6 text-accent shrink-0" aria-hidden="true" />
+                <div>
+                  <div className="text-2xl md:text-3xl font-display font-extrabold text-white leading-none">{stat.value}</div>
+                  <p className="text-white/60 text-sm font-medium">{stat.label}</p>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -276,26 +326,92 @@ export default function Home() {
           subtitle="A clear, repeatable process that keeps projects on time, on budget, and fully aligned with your goals."
           centered
         />
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-4">
-          {[
-            { step: "01", icon: TrendingUp, title: "Discovery & Audit", desc: "We assess your current systems, goals, and gaps to build a strategy tailored to your business." },
-            { step: "02", icon: Zap, title: "Planning & Design", desc: "A detailed project plan with milestones, timelines, and clearly defined success metrics." },
-            { step: "03", icon: Cog, title: "Implementation", desc: "Our specialists execute the plan with minimal disruption to your daily operations." },
-            { step: "04", icon: CheckCircle2, title: "Support & Optimization", desc: "Post-launch monitoring, training, and ongoing optimization so your investment keeps growing." },
-          ].map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.3, delay: i * 0.1 }}
-              className="relative bg-card p-8 rounded-2xl border border-border"
+        <div className="relative max-w-4xl mx-auto mt-4">
+          <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-accent/20 hidden md:block" aria-hidden="true" />
+          <div className="space-y-12">
+            {processSteps.map((item, i) => {
+              const Icon = item.icon;
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: i * 0.1 }}
+                  className="relative flex gap-6 md:gap-8 items-start"
+                >
+                  <div className="relative z-10 w-12 h-12 rounded-full bg-accent flex items-center justify-center shrink-0">
+                    <Icon className="w-5 h-5 text-white" aria-hidden="true" />
+                  </div>
+                  <div className="pt-1">
+                    <span className="text-xs font-bold text-accent uppercase tracking-wider">Step {item.step}</span>
+                    <h3 className="text-xl font-bold text-primary mt-1 mb-2">{item.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed">{item.desc}</p>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </Section>
+
+      <Section bg="white">
+        <SectionHeader
+          title="Industries We Serve"
+          subtitle="NexFortis provides managed IT services, cloud solutions, and digital transformation support to businesses across Canada's most dynamic sectors."
+          centered
+        />
+        <div className="max-w-4xl mx-auto">
+          <p className="text-center text-muted-foreground text-lg leading-relaxed mb-10">
+            Whether you run a busy medical clinic that needs PIPEDA-compliant infrastructure, a law firm migrating to Microsoft 365, or a retail operation scaling its e-commerce platform — our team has the domain expertise to deliver solutions that fit your industry's unique regulatory, security, and operational requirements.
+          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {industries.map((ind, i) => {
+              const Icon = ind.icon;
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.2, delay: i * 0.05 }}
+                  className="flex items-start gap-4"
+                >
+                  <Icon className="w-5 h-5 text-accent shrink-0 mt-1" aria-hidden="true" />
+                  <div>
+                    <span className="text-foreground font-bold text-lg block mb-1">{ind.name}</span>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{ind.desc}</p>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+          <div className="text-center">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-bold hover:bg-primary/90 transition-all hover:-translate-y-0.5 shadow-lg"
             >
-              <span className="text-6xl font-display font-extrabold text-accent/10 absolute -top-4 -left-2" aria-hidden="true">{item.step}</span>
-              <item.icon className="w-8 h-8 text-accent mb-4 relative z-10 mt-6" aria-hidden="true" />
-              <h3 className="text-lg font-bold text-primary mb-3">{item.title}</h3>
-              <p className="text-muted-foreground leading-relaxed text-sm">{item.desc}</p>
-            </motion.div>
+              Tell Us About Your Industry <ArrowRight className="w-5 h-5" aria-hidden="true" />
+            </Link>
+          </div>
+        </div>
+      </Section>
+
+      <Section bg="secondary">
+        <SectionHeader
+          title="Frequently Asked Questions"
+          subtitle="Answers to the most common questions Canadian businesses ask about managed IT services, Microsoft 365, and QuickBooks migration."
+          centered
+        />
+        <div className="max-w-3xl mx-auto border-t border-border">
+          {homeFaqs.map((faq, i) => (
+            <FAQItem
+              key={i}
+              question={faq.question}
+              answer={faq.answer}
+              isOpen={openFaq === i}
+              onToggle={() => setOpenFaq(openFaq === i ? null : i)}
+            />
           ))}
         </div>
       </Section>

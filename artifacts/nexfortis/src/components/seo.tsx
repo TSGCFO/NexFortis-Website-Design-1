@@ -121,6 +121,27 @@ export function BreadcrumbSchema({ items }: { items: { name: string; url: string
   );
 }
 
+export function FAQSchema({ faqs }: { faqs: { question: string; answer: string }[] }) {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+
+  return (
+    <Helmet>
+      <script type="application/ld+json">{JSON.stringify(schema)}</script>
+    </Helmet>
+  );
+}
+
 export function ArticleSchema({ title, description, datePublished, dateModified, url }: {
   title: string;
   description: string;

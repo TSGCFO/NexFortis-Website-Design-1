@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { motion } from "framer-motion";
-import { LucideIcon, ArrowRight } from "lucide-react";
+import { LucideIcon, ArrowRight, ChevronDown } from "lucide-react";
 import { Link } from "wouter";
 
 export function Section({ children, className = "", bg = "white", id }: { children: ReactNode, className?: string, bg?: "white" | "secondary" | "primary", id?: string }) {
@@ -62,6 +62,26 @@ export function ServiceCard({ title, description, icon: Icon, href }: { title: s
         Learn More <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
       </Link>
     </motion.div>
+  );
+}
+
+export function FAQItem({ question, answer, isOpen, onToggle }: { question: string; answer: string; isOpen: boolean; onToggle: () => void }) {
+  return (
+    <div className="border-b border-border last:border-b-0">
+      <button
+        onClick={onToggle}
+        className="w-full flex items-center justify-between py-5 text-left gap-4"
+        aria-expanded={isOpen}
+      >
+        <span className="text-lg font-semibold text-primary">{question}</span>
+        <ChevronDown className={`w-5 h-5 text-accent shrink-0 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} aria-hidden="true" />
+      </button>
+      {isOpen && (
+        <div className="pb-5 text-muted-foreground leading-relaxed pr-8">
+          {answer}
+        </div>
+      )}
+    </div>
   );
 }
 

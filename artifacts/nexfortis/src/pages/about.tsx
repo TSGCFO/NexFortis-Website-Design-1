@@ -6,10 +6,10 @@ import { motion } from "framer-motion";
 
 export default function About() {
   const values = [
-    { icon: Target, title: "Integrity", desc: "Honest advice and transparent pricing. We recommend what you need, nothing more." },
-    { icon: Lightbulb, title: "Innovation", desc: "Staying ahead of the tech curve to bring you the most modern and effective tools." },
-    { icon: Users, title: "Client-First", desc: "Your success is our success. We prioritize your business goals in every project." },
-    { icon: Minimize2, title: "Simplicity", desc: "Making complex technology easy to understand and effortless to use." },
+    { icon: Target, title: "Integrity", desc: "Honest advice and transparent pricing — always. We recommend what your business actually needs, explain the trade-offs clearly, and never upsell services that won't deliver real value. Our proposals include detailed scope and fixed pricing so there are no surprises." },
+    { icon: Lightbulb, title: "Innovation", desc: "Technology moves fast, and so do we. Our team continuously evaluates emerging tools, platforms, and security frameworks to ensure our clients benefit from the most effective solutions available — not last year's best practices." },
+    { icon: Users, title: "Client-First", desc: "Your success is our success. Every project starts with your business goals — not our service catalog. We listen, we ask questions, and we build solutions that move the needle on the metrics that matter to your organization." },
+    { icon: Minimize2, title: "Simplicity", desc: "Complex technology should feel effortless to use. We design systems and workflows that your team can adopt quickly and manage confidently. Clear documentation, hands-on training, and responsive support ensure nothing gets lost in translation." },
   ];
 
   return (
@@ -35,6 +35,12 @@ export default function About() {
               <p>
                 Our headquarters in Nobleton, Ontario serves as the hub for our dedicated team of engineers, developers, and consultants who are passionate about driving your business forward.
               </p>
+              <p>
+                Over the years, we've had the privilege of working with Canadian businesses across healthcare, legal, finance, retail, manufacturing, and professional services. Each industry brings unique challenges — from PIPEDA-compliant data handling in medical clinics to real-time inventory integrations for e-commerce retailers — and our team has built deep domain expertise to address them all. We understand that Canadian businesses face a distinct regulatory landscape, and we design every solution with privacy, compliance, and data residency at the forefront.
+              </p>
+              <p>
+                As a Microsoft Authorized Partner and certified QuickBooks ProAdvisor team, NexFortis brings credentials that matter. Our engineers hold current certifications across the Microsoft 365 ecosystem, Azure cloud services, and Intune device management. Combined with our ProAdvisor expertise in QuickBooks Online and Desktop, we offer a rare blend of cloud productivity and financial systems knowledge that most IT firms simply can't match. It's this combination of certifications, Canadian-first privacy practices, and a genuine commitment to long-term client relationships that sets NexFortis apart in a crowded market.
+              </p>
             </div>
           </div>
           <div className="bg-secondary rounded-3xl p-10 border border-border">
@@ -52,7 +58,7 @@ export default function About() {
 
       <Section bg="secondary">
         <SectionHeader title="Core Values" centered />
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="max-w-4xl mx-auto grid sm:grid-cols-2 gap-y-10 gap-x-16">
           {values.map((val, i) => {
             const Icon = val.icon;
             return (
@@ -62,13 +68,15 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: i * 0.08 }}
-                className="bg-card p-8 rounded-2xl shadow-sm border border-border text-center"
+                className="flex items-start gap-5"
               >
-                <div className="w-16 h-16 mx-auto bg-accent/10 rounded-2xl flex items-center justify-center text-accent mb-6">
-                  <Icon className="w-8 h-8" />
+                <div className="w-14 h-14 shrink-0 bg-accent/10 rounded-2xl flex items-center justify-center text-accent">
+                  <Icon className="w-7 h-7" />
                 </div>
-                <h4 className="text-xl font-bold text-primary mb-3">{val.title}</h4>
-                <p className="text-muted-foreground">{val.desc}</p>
+                <div>
+                  <h4 className="text-xl font-bold text-primary mb-2">{val.title}</h4>
+                  <p className="text-muted-foreground leading-relaxed">{val.desc}</p>
+                </div>
               </motion.div>
             );
           })}
