@@ -46,19 +46,19 @@
 
 :root {
   --background: 0 0% 100%;
-  --foreground: 220 44% 18%;
+  --foreground: 212 100% 12%;
   
   --card: 0 0% 100%;
-  --card-foreground: 220 44% 18%;
+  --card-foreground: 212 100% 12%;
   
   --popover: 0 0% 100%;
-  --popover-foreground: 220 44% 18%;
+  --popover-foreground: 212 100% 12%;
   
-  --primary: 220 44% 18%;
+  --primary: 212 100% 12%;
   --primary-foreground: 0 0% 100%;
   
   --secondary: 210 25% 96%;
-  --secondary-foreground: 220 44% 18%;
+  --secondary-foreground: 212 100% 12%;
   
   --muted: 210 25% 96%;
   --muted-foreground: 215 16% 47%;
@@ -128,7 +128,7 @@
 }
 
 .bg-gradient-navy-teal {
-  background: linear-gradient(135deg, hsl(220, 44%, 18%) 0%, hsl(194, 100%, 25%) 100%);
+  background: linear-gradient(135deg, hsl(212, 100%, 12%) 0%, hsl(194, 100%, 25%) 100%);
 }
 
 .dark .bg-gradient-navy-teal {

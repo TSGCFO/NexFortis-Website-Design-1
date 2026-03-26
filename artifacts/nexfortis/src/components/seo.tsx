@@ -11,7 +11,7 @@ interface SEOProps {
 
 const SITE_NAME = "NexFortis IT Solutions";
 const SITE_URL = "https://nexfortis.com";
-const DEFAULT_IMAGE = "/images/logo-original.png";
+const DEFAULT_IMAGE = "/opengraph.png";
 
 export function SEO({ title, description, path = "/", type = "website", image, noIndex }: SEOProps) {
   const fullTitle = path === "/" ? `${SITE_NAME} — Your Business. Our Technology. Limitless Growth.` : `${title} | ${SITE_NAME}`;
