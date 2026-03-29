@@ -177,6 +177,26 @@ export default function Home() {
               </Link>
             </div>
           </motion.div>
+
+          {/* BRAND MARK PLACEHOLDER — Replace the <img> src below with the premium
+              3D metallic brand mark SVG/PNG when the asset is provided by the site owner.
+              Remove the placeholder styling (opacity, grayscale) once the final asset is in place. */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+            className="mt-16 flex justify-center"
+          >
+            <div className="relative w-28 h-28 md:w-36 md:h-36 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm flex items-center justify-center p-4">
+              <img
+                src={`${import.meta.env.BASE_URL}images/logo-white.svg`}
+                alt="NexFortis brand mark"
+                className="w-full h-full object-contain opacity-60"
+                loading="eager"
+              />
+              <span className="sr-only">Premium 3D brand mark coming soon</span>
+            </div>
+          </motion.div>
         </div>
       </section>
 
