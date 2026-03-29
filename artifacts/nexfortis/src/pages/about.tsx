@@ -57,6 +57,18 @@ export default function About() {
       </Section>
 
       <Section bg="secondary">
+        <SectionHeader title="Partnerships & Certifications" centered />
+        <div className="flex flex-wrap justify-center items-center gap-10">
+          <img
+            src={`${import.meta.env.BASE_URL}images/badges/microsoft-partner-badge.png`}
+            alt="Microsoft Authorized Partner"
+            className="h-10 w-auto max-w-[160px] object-contain"
+            onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+          />
+        </div>
+      </Section>
+
+      <Section bg="white">
         <SectionHeader title="Core Values" centered />
         <div className="max-w-4xl mx-auto grid sm:grid-cols-2 gap-y-10 gap-x-16">
           {values.map((val, i) => {

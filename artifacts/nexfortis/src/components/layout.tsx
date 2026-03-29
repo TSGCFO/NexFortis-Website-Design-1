@@ -342,6 +342,16 @@ export function Layout({ children }: { children: ReactNode }) {
             </div>
           </div>
 
+          <div className="border-t border-primary-foreground/10 pt-8 pb-8 flex justify-center items-center gap-8">
+            <img
+              src={`${import.meta.env.BASE_URL}images/badges/microsoft-partner-badge.png`}
+              alt="Microsoft Authorized Partner"
+              className="h-8 w-auto max-w-[140px] object-contain opacity-70"
+              loading="lazy"
+              onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+            />
+          </div>
+
           <div className="border-t border-primary-foreground/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-primary-foreground/50">
             <p>&copy; {new Date().getFullYear()} NexFortis IT Solutions (17756968 Canada Inc.). All rights reserved.</p>
             <div className="flex gap-6">

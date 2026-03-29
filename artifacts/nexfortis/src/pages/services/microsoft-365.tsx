@@ -94,10 +94,12 @@ export default function Microsoft365() {
             viewport={{ once: true }}
             transition={{ duration: 0.4 }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary text-primary font-bold text-sm mb-6 border border-border">
-              <ShieldCheck className="w-4 h-4 text-accent" aria-hidden="true" />
-              Microsoft Authorized Partner
-            </div>
+            <img
+              src={`${import.meta.env.BASE_URL}images/badges/microsoft-partner-badge.png`}
+              alt="Microsoft Authorized Partner"
+              className="h-10 w-auto max-w-[160px] object-contain mb-6"
+              onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+            />
             <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-6">
               Work Anywhere. Securely.
             </h2>

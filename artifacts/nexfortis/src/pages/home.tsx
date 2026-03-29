@@ -228,12 +228,14 @@ export default function Home() {
           <p className="text-center text-sm font-semibold text-muted-foreground uppercase tracking-widest mb-8">
             Certified Partners &amp; Trusted by Modern Canadian Businesses
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-60 grayscale hover:grayscale-0 transition-all duration-300">
-            <div className="flex items-center gap-3 font-display font-bold text-xl text-primary">
-              <Cloud className="w-8 h-8 text-accent" aria-hidden="true" />
-              Microsoft Authorized Partner
-            </div>
-            <div className="flex items-center gap-3 font-display font-bold text-xl text-primary">
+          <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24">
+            <img
+              src={`${import.meta.env.BASE_URL}images/badges/microsoft-partner-badge.png`}
+              alt="Microsoft Authorized Partner"
+              className="h-10 w-auto max-w-[160px] object-contain"
+              onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+            />
+            <div className="flex items-center gap-3 font-display font-bold text-xl text-primary opacity-60">
               <Database className="w-8 h-8 text-accent" aria-hidden="true" />
               QuickBooks ProAdvisor
             </div>
