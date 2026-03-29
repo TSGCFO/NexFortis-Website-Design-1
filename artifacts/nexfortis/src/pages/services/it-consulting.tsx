@@ -4,6 +4,7 @@ import { Map, ListChecks, SearchCheck, ArrowRight, Shield, TrendingUp, Clock, Ch
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 
 const consultingFaqs = [
   {
@@ -75,6 +76,19 @@ export default function ITConsulting() {
         { name: "IT Consulting", url: "https://nexfortis.com/services/it-consulting" },
       ]} />
       <FAQSchema faqs={consultingFaqs} />
+      <div className="bg-primary pt-20 pb-0">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumb>
+            <BreadcrumbList className="text-white/60">
+              <BreadcrumbItem><BreadcrumbLink asChild><Link href="/" className="hover:text-white">Home</Link></BreadcrumbLink></BreadcrumbItem>
+              <BreadcrumbSeparator className="text-white/40" />
+              <BreadcrumbItem><BreadcrumbLink asChild><Link href="/services" className="hover:text-white">Services</Link></BreadcrumbLink></BreadcrumbItem>
+              <BreadcrumbSeparator className="text-white/40" />
+              <BreadcrumbItem><BreadcrumbPage className="text-white">IT Consulting</BreadcrumbPage></BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
+      </div>
       <PageHero 
         title="IT Consulting & Project Management" 
         subtitle="Strategic technology guidance to align your IT infrastructure with your business goals."

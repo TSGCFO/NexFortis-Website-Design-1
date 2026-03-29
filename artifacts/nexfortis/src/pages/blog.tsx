@@ -20,74 +20,7 @@ interface BlogPost {
 
 const BASE = import.meta.env.BASE_URL;
 
-const fallbackPosts: BlogPost[] = [
-  {
-    id: 1,
-    title: "Migrating to Microsoft 365: A Step-by-Step Guide for Canadian Small Businesses",
-    slug: "migrating-to-microsoft-365",
-    excerpt: "Moving from legacy email and shared drives to Microsoft 365 is one of the highest-ROI technology investments a small business can make. Learn the key steps, common pitfalls, and what to expect from a zero-downtime migration.",
-    category: "Microsoft 365",
-    coverImage: `${BASE}images/blog-1.png`,
-    published: true,
-    createdAt: "2024-03-12T00:00:00Z",
-    readTime: 7,
-  },
-  {
-    id: 2,
-    title: "Why Your Business Needs an IT Audit Before Year End",
-    slug: "tech-audit-before-year-end",
-    excerpt: "Uncovering hidden licensing costs and patching security vulnerabilities should be a priority before finalizing your annual budget. Here's what a thorough IT audit covers and how it saves Canadian SMBs thousands each year.",
-    category: "IT Consulting",
-    coverImage: `${BASE}images/blog-2.png`,
-    published: true,
-    createdAt: "2024-02-28T00:00:00Z",
-    readTime: 5,
-  },
-  {
-    id: 3,
-    title: "The Power of Zapier: 5 Workflows Canadian Businesses Can Automate Today",
-    slug: "zapier-5-workflows",
-    excerpt: "Stop copying and pasting data between systems. These five simple Zapier automations can save your team hours every week — no coding required. Real examples from accounting, CRM, and project management tools.",
-    category: "Automation",
-    coverImage: `${BASE}images/blog-3.png`,
-    published: true,
-    createdAt: "2024-02-15T00:00:00Z",
-    readTime: 6,
-  },
-  {
-    id: 4,
-    title: "QuickBooks Data Migration: What to Expect and How to Prepare",
-    slug: "quickbooks-data-migration-guide",
-    excerpt: "Switching from Sage 50, SAP, or Xero to QuickBooks? This guide walks you through exactly how data migration works, what gets transferred, and how to ensure a clean, accurate transition with zero loss.",
-    category: "QuickBooks",
-    coverImage: `${BASE}images/blog-1.png`,
-    published: true,
-    createdAt: "2024-01-20T00:00:00Z",
-    readTime: 8,
-  },
-  {
-    id: 5,
-    title: "Google Ads vs. SEO: Which Should Canadian Businesses Invest In First?",
-    slug: "google-ads-vs-seo-canada",
-    excerpt: "Both Google Ads and SEO drive traffic, but they work differently and suit different stages of business growth. Here's a practical breakdown to help you decide where to put your digital marketing budget first.",
-    category: "Digital Marketing",
-    coverImage: `${BASE}images/blog-2.png`,
-    published: true,
-    createdAt: "2024-01-08T00:00:00Z",
-    readTime: 6,
-  },
-  {
-    id: 6,
-    title: "Understanding Zero Trust Security for Small Business",
-    slug: "zero-trust-security-small-business",
-    excerpt: "Zero trust isn't just an enterprise buzzword — it's an approachable security framework that any Canadian business can adopt. Learn what zero trust means in practice and how Microsoft 365 makes it accessible.",
-    category: "Cybersecurity",
-    coverImage: `${BASE}images/blog-3.png`,
-    published: true,
-    createdAt: "2023-12-15T00:00:00Z",
-    readTime: 5,
-  },
-];
+const fallbackPosts: BlogPost[] = [];
 
 function estimateReadTime(excerpt: string): number {
   const words = excerpt.split(/\s+/).length;

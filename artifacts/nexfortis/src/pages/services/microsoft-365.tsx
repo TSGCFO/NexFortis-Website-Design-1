@@ -4,6 +4,7 @@ import { Check, ShieldCheck, Mail, Users, MonitorSmartphone, ArrowRight, Cloud, 
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 
 const m365Faqs = [
   {
@@ -67,6 +68,19 @@ export default function Microsoft365() {
         { name: "Microsoft 365", url: "https://nexfortis.com/services/microsoft-365" },
       ]} />
       <FAQSchema faqs={m365Faqs} />
+      <div className="bg-primary pt-20 pb-0">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumb>
+            <BreadcrumbList className="text-white/60">
+              <BreadcrumbItem><BreadcrumbLink asChild><Link href="/" className="hover:text-white">Home</Link></BreadcrumbLink></BreadcrumbItem>
+              <BreadcrumbSeparator className="text-white/40" />
+              <BreadcrumbItem><BreadcrumbLink asChild><Link href="/services" className="hover:text-white">Services</Link></BreadcrumbLink></BreadcrumbItem>
+              <BreadcrumbSeparator className="text-white/40" />
+              <BreadcrumbItem><BreadcrumbPage className="text-white">Microsoft 365</BreadcrumbPage></BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
+      </div>
       <PageHero
         title="Microsoft 365 Solutions"
         subtitle="Empower your workforce with enterprise-grade productivity tools and zero-trust security."
@@ -216,7 +230,7 @@ export default function Microsoft365() {
             Get a custom Microsoft 365 deployment plan tailored to your team's size and security requirements.
           </p>
           <Link href="/contact" className="inline-flex px-8 py-4 min-h-[48px] rounded-xl bg-warning text-white font-bold text-lg hover:bg-warning/90 transition-all items-center justify-center gap-2 hover:-translate-y-0.5">
-            Get Your Microsoft 365 Quote <ArrowRight className="w-5 h-5" />
+            Get a Free Quote <ArrowRight className="w-5 h-5" />
           </Link>
         </div>
       </Section>

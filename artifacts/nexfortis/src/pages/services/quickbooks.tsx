@@ -4,6 +4,7 @@ import { ArrowRight, Database, Wrench, ShieldAlert, CheckCircle2, DollarSign, Cl
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 
 const qbFaqs = [
   {
@@ -76,6 +77,19 @@ export default function QuickBooks() {
         { name: "QuickBooks Solutions", url: "https://nexfortis.com/services/quickbooks" },
       ]} />
       <FAQSchema faqs={qbFaqs} />
+      <div className="bg-primary pt-20 pb-0">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumb>
+            <BreadcrumbList className="text-white/60">
+              <BreadcrumbItem><BreadcrumbLink asChild><Link href="/" className="hover:text-white">Home</Link></BreadcrumbLink></BreadcrumbItem>
+              <BreadcrumbSeparator className="text-white/40" />
+              <BreadcrumbItem><BreadcrumbLink asChild><Link href="/services" className="hover:text-white">Services</Link></BreadcrumbLink></BreadcrumbItem>
+              <BreadcrumbSeparator className="text-white/40" />
+              <BreadcrumbItem><BreadcrumbPage className="text-white">QuickBooks Solutions</BreadcrumbPage></BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
+      </div>
       <PageHero 
         title="QuickBooks Migration & Tools" 
         subtitle="Expert data migration, recovery services, and powerful add-on tools to supercharge your accounting."
@@ -204,7 +218,7 @@ export default function QuickBooks() {
                       <p className="text-accent font-semibold">{item.price}</p>
                     </div>
                     <Link href="/contact" className="px-4 py-2 rounded-lg bg-primary/10 dark:bg-primary/20 text-primary hover:bg-accent hover:text-white transition-colors text-sm font-bold">
-                      Buy Now
+                      Request a License
                     </Link>
                   </div>
                 ))}

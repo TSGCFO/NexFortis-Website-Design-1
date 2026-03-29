@@ -104,6 +104,7 @@ export default function Contact() {
 
           <div className="lg:col-span-3 bg-card p-8 md:p-12 rounded-3xl shadow-xl border border-border">
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6" noValidate>
+              <p className="text-sm text-muted-foreground"><span className="text-destructive">*</span> Required field</p>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="contact-name" className="block text-sm font-semibold text-primary mb-2">Full Name <span className="text-destructive" aria-hidden="true">*</span></label>
@@ -115,9 +116,11 @@ export default function Contact() {
                     autoComplete="name"
                     aria-required="true"
                     aria-invalid={errors.name ? "true" : undefined}
-                    aria-describedby={errors.name ? "name-error" : undefined}
+                    aria-describedby="name-hint"
                   />
-                  {errors.name && <p id="name-error" className="text-destructive text-sm mt-1" role="alert">{errors.name.message}</p>}
+                  <p id="name-hint" className="text-sm mt-1" role={errors.name ? "alert" : undefined}>
+                    {errors.name ? <span className="text-destructive">{errors.name.message}</span> : <span className="text-muted-foreground sr-only">Enter your full name</span>}
+                  </p>
                 </div>
                 <div>
                   <label htmlFor="contact-email" className="block text-sm font-semibold text-primary mb-2">Email Address <span className="text-destructive" aria-hidden="true">*</span></label>
@@ -130,9 +133,11 @@ export default function Contact() {
                     autoComplete="email"
                     aria-required="true"
                     aria-invalid={errors.email ? "true" : undefined}
-                    aria-describedby={errors.email ? "email-error" : undefined}
+                    aria-describedby="email-hint"
                   />
-                  {errors.email && <p id="email-error" className="text-destructive text-sm mt-1" role="alert">{errors.email.message}</p>}
+                  <p id="email-hint" className="text-sm mt-1" role={errors.email ? "alert" : undefined}>
+                    {errors.email ? <span className="text-destructive">{errors.email.message}</span> : <span className="text-muted-foreground sr-only">Enter your email address</span>}
+                  </p>
                 </div>
               </div>
 
@@ -148,9 +153,11 @@ export default function Contact() {
                     autoComplete="tel"
                     aria-required="true"
                     aria-invalid={errors.phone ? "true" : undefined}
-                    aria-describedby={errors.phone ? "phone-error" : undefined}
+                    aria-describedby="phone-hint"
                   />
-                  {errors.phone && <p id="phone-error" className="text-destructive text-sm mt-1" role="alert">{errors.phone.message}</p>}
+                  <p id="phone-hint" className="text-sm mt-1" role={errors.phone ? "alert" : undefined}>
+                    {errors.phone ? <span className="text-destructive">{errors.phone.message}</span> : <span className="text-muted-foreground sr-only">Enter your phone number</span>}
+                  </p>
                 </div>
                 <div>
                   <label htmlFor="contact-company" className="block text-sm font-semibold text-primary mb-2">Company <span className="text-muted-foreground font-normal">(Optional)</span></label>
@@ -160,7 +167,9 @@ export default function Contact() {
                     className={inputClasses}
                     placeholder="Company Ltd."
                     autoComplete="organization"
+                    aria-describedby="company-hint"
                   />
+                  <p id="company-hint" className="sr-only">Enter your company name (optional)</p>
                 </div>
               </div>
 
@@ -172,7 +181,7 @@ export default function Contact() {
                   className={`${inputClasses} text-foreground`}
                   aria-required="true"
                   aria-invalid={errors.service ? "true" : undefined}
-                  aria-describedby={errors.service ? "service-error" : undefined}
+                  aria-describedby="service-hint"
                 >
                   <option value="">Select a service...</option>
                   <option value="digital-marketing">Digital Marketing</option>
@@ -182,7 +191,9 @@ export default function Contact() {
                   <option value="automation">Workflow Automation</option>
                   <option value="other">Other Inquiry</option>
                 </select>
-                {errors.service && <p id="service-error" className="text-destructive text-sm mt-1" role="alert">{errors.service.message}</p>}
+                <p id="service-hint" className="text-sm mt-1" role={errors.service ? "alert" : undefined}>
+                  {errors.service ? <span className="text-destructive">{errors.service.message}</span> : <span className="text-muted-foreground sr-only">Select the service you are interested in</span>}
+                </p>
               </div>
 
               <div>
@@ -195,9 +206,11 @@ export default function Contact() {
                   placeholder="Tell us about your project or problem..."
                   aria-required="true"
                   aria-invalid={errors.message ? "true" : undefined}
-                  aria-describedby={errors.message ? "message-error" : undefined}
+                  aria-describedby="message-hint"
                 />
-                {errors.message && <p id="message-error" className="text-destructive text-sm mt-1" role="alert">{errors.message.message}</p>}
+                <p id="message-hint" className="text-sm mt-1" role={errors.message ? "alert" : undefined}>
+                  {errors.message ? <span className="text-destructive">{errors.message.message}</span> : <span className="text-muted-foreground sr-only">Tell us about your project</span>}
+                </p>
               </div>
 
               <button

@@ -171,14 +171,14 @@
 }
 
 .text-gradient-teal {
-  background: linear-gradient(to right, hsl(194, 100%, 42%), hsl(194, 100%, 30%));
+  background: linear-gradient(to right, hsl(194, 80%, 65%), hsl(194, 80%, 55%));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .dark .text-gradient-teal {
-  background: linear-gradient(to right, hsl(194, 100%, 55%), hsl(194, 100%, 42%));
+  background: linear-gradient(to right, hsl(194, 80%, 72%), hsl(194, 80%, 62%));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

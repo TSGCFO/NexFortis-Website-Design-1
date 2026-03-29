@@ -4,6 +4,7 @@ import { Globe, Server, Search, PenTool, BarChart, Settings, ArrowRight, CheckCi
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 
 const dmFaqs = [
   {
@@ -57,6 +58,19 @@ export default function DigitalMarketing() {
         { name: "Digital Marketing", url: "https://nexfortis.com/services/digital-marketing" },
       ]} />
       <FAQSchema faqs={dmFaqs} />
+      <div className="bg-primary pt-20 pb-0">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumb>
+            <BreadcrumbList className="text-white/60">
+              <BreadcrumbItem><BreadcrumbLink asChild><Link href="/" className="hover:text-white">Home</Link></BreadcrumbLink></BreadcrumbItem>
+              <BreadcrumbSeparator className="text-white/40" />
+              <BreadcrumbItem><BreadcrumbLink asChild><Link href="/services" className="hover:text-white">Services</Link></BreadcrumbLink></BreadcrumbItem>
+              <BreadcrumbSeparator className="text-white/40" />
+              <BreadcrumbItem><BreadcrumbPage className="text-white">Digital Marketing</BreadcrumbPage></BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
+      </div>
       <PageHero 
         title="Digital Marketing & Web Presence" 
         subtitle="Your digital storefront matters. We build, host, and optimize your online presence to attract and convert."
@@ -196,7 +210,7 @@ export default function DigitalMarketing() {
             Let's discuss how we can build a digital strategy that drives real results for your business.
           </p>
           <Link href="/contact" className="inline-flex px-8 py-4 min-h-[48px] rounded-xl bg-warning text-white font-bold text-lg hover:bg-warning/90 transition-all items-center justify-center gap-2 hover:-translate-y-0.5">
-            Start Your Project <ArrowRight className="w-5 h-5" />
+            Get a Free Quote <ArrowRight className="w-5 h-5" />
           </Link>
         </div>
       </Section>

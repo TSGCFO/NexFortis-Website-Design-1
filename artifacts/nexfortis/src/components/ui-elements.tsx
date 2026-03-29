@@ -87,7 +87,7 @@ export function FAQItem({ question, answer, isOpen, onToggle }: { question: stri
 
 export function PageHero({ title, subtitle, imagePath }: { title: string, subtitle: string, imagePath?: string }) {
   return (
-    <div className="relative pt-32 pb-20 md:pt-48 md:pb-32 bg-primary overflow-hidden">
+    <div className="relative pt-24 pb-12 md:pt-32 md:pb-20 bg-primary overflow-hidden">
       {imagePath && (
         <div className="absolute inset-0 z-0">
           <picture>

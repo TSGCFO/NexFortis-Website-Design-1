@@ -4,6 +4,7 @@ import { Zap, Code2, GitMerge, ArrowRight, CheckCircle2, Workflow, Bot, Layers, 
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 
 const autoFaqs = [
   {
@@ -89,6 +90,19 @@ export default function AutomationSoftware() {
         { name: "Workflow Automation", url: "https://nexfortis.com/services/automation-software" },
       ]} />
       <FAQSchema faqs={autoFaqs} />
+      <div className="bg-primary pt-20 pb-0">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumb>
+            <BreadcrumbList className="text-white/60">
+              <BreadcrumbItem><BreadcrumbLink asChild><Link href="/" className="hover:text-white">Home</Link></BreadcrumbLink></BreadcrumbItem>
+              <BreadcrumbSeparator className="text-white/40" />
+              <BreadcrumbItem><BreadcrumbLink asChild><Link href="/services" className="hover:text-white">Services</Link></BreadcrumbLink></BreadcrumbItem>
+              <BreadcrumbSeparator className="text-white/40" />
+              <BreadcrumbItem><BreadcrumbPage className="text-white">Workflow Automation</BreadcrumbPage></BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
+      </div>
       <PageHero 
         title="Workflow Automation & Custom Software" 
         subtitle="Eliminate manual busywork and build bespoke tools that run your business flawlessly."
@@ -250,7 +264,7 @@ export default function AutomationSoftware() {
             Tell us about your workflow challenges and we'll design a custom solution that saves your team hours every week.
           </p>
           <Link href="/contact" className="inline-flex px-8 py-4 min-h-[48px] rounded-xl bg-warning text-white font-bold text-lg hover:bg-warning/90 transition-all items-center justify-center gap-2 hover:-translate-y-0.5">
-            Discuss Your Project <ArrowRight className="w-5 h-5" />
+            Get a Free Quote <ArrowRight className="w-5 h-5" />
           </Link>
         </div>
       </Section>

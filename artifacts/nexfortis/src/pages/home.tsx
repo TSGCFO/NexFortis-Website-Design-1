@@ -123,7 +123,7 @@ export default function Home() {
       <OrganizationSchema />
       <FAQSchema faqs={homeFaqs} />
 
-      <section className="relative min-h-[90vh] flex items-center justify-center bg-primary overflow-hidden pt-20">
+      <section className="relative min-h-[60vh] flex items-center justify-center bg-primary overflow-hidden pt-20">
         <div className="absolute inset-0 z-0" aria-hidden="true">
           <picture>
             <source srcSet={`${import.meta.env.BASE_URL}images/hero-bg.webp`} type="image/webp" />
@@ -165,7 +165,7 @@ export default function Home() {
                 href="/contact"
                 className="w-full sm:w-auto px-8 py-4 min-h-[48px] rounded-xl bg-warning text-warning-foreground font-bold text-lg hover:bg-warning/90 hover:-translate-y-1 transition-all shadow-xl shadow-warning/20 flex items-center justify-center gap-2"
               >
-                Get a Free Consultation <ArrowRight className="w-5 h-5" aria-hidden="true" />
+                Book a Consultation <ArrowRight className="w-5 h-5" aria-hidden="true" />
               </Link>
               <Link
                 href="/services"
@@ -397,7 +397,7 @@ export default function Home() {
               href="/contact"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-bold hover:bg-primary/90 transition-all hover:-translate-y-0.5 shadow-lg"
             >
-              Tell Us About Your Industry <ArrowRight className="w-5 h-5" aria-hidden="true" />
+              Book a Consultation <ArrowRight className="w-5 h-5" aria-hidden="true" />
             </Link>
           </div>
         </div>
@@ -435,7 +435,7 @@ export default function Home() {
             href="/contact"
             className="inline-flex px-8 py-4 min-h-[48px] rounded-xl bg-warning text-warning-foreground font-bold text-lg hover:bg-warning/90 hover:scale-105 transition-all shadow-xl shadow-warning/20 items-center justify-center gap-2"
           >
-            Book Your Free Consultation <ArrowRight className="w-5 h-5" aria-hidden="true" />
+            Book a Consultation <ArrowRight className="w-5 h-5" aria-hidden="true" />
           </Link>
         </div>
       </section>

@@ -1,7 +1,7 @@
 import { ReactNode, useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, Monitor, Database, Cloud, Cog, LayoutDashboard, ArrowRight, Sun, Moon, MonitorSmartphone } from "lucide-react";
+import { Menu, X, ChevronDown, Monitor, Database, Cloud, Cog, LayoutDashboard, ArrowRight, ArrowUp, Sun, Moon, MonitorSmartphone } from "lucide-react";
 import { useTheme } from "@/hooks/use-theme";
 
 const services = [
@@ -156,7 +156,6 @@ export function Layout({ children }: { children: ReactNode }) {
               className="relative"
               onMouseEnter={() => setServicesDropdownOpen(true)}
               onMouseLeave={() => setServicesDropdownOpen(false)}
-              onFocus={() => setServicesDropdownOpen(true)}
               onBlur={(e) => {
                 if (!e.currentTarget.contains(e.relatedTarget as Node)) {
                   setServicesDropdownOpen(false);
@@ -165,16 +164,16 @@ export function Layout({ children }: { children: ReactNode }) {
               onKeyDown={(e) => {
                 if (e.key === "Escape") {
                   setServicesDropdownOpen(false);
-                  (e.currentTarget.querySelector("a") as HTMLElement)?.focus();
+                  (e.currentTarget.querySelector("button") as HTMLElement)?.focus();
                 }
               }}
             >
-              <Link
-                href="/services"
+              <button
+                type="button"
+                onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
                 className={`text-sm font-semibold transition-colors flex items-center gap-1 py-2 relative ${
                   isServicesActive ? "text-accent" : "text-foreground/80 hover:text-accent"
                 }`}
-                aria-current={isServicesActive ? "page" : undefined}
                 aria-expanded={servicesDropdownOpen}
                 aria-haspopup="true"
               >
@@ -182,7 +181,7 @@ export function Layout({ children }: { children: ReactNode }) {
                 {isServicesActive && (
                   <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent rounded-full" />
                 )}
-              </Link>
+              </button>
 
               <AnimatePresence>
                 {servicesDropdownOpen && (
@@ -228,14 +227,13 @@ export function Layout({ children }: { children: ReactNode }) {
             </div>
 
             <NavLink href="/about" location={location}>About</NavLink>
-            <NavLink href="/blog" location={location}>Blog</NavLink>
             <NavLink href="/contact" location={location}>Contact</NavLink>
           </nav>
 
           <div className="hidden md:flex items-center gap-3">
             <ThemeToggle />
             <Link href="/contact" className="px-6 py-2.5 rounded-full bg-warning text-warning-foreground font-semibold text-sm hover:bg-warning/90 hover:shadow-lg hover:shadow-warning/20 transition-all hover:-translate-y-0.5">
-              Get a Quote
+              Book a Consultation
             </Link>
           </div>
 
@@ -276,10 +274,9 @@ export function Layout({ children }: { children: ReactNode }) {
                   ))}
                 </div>
                 <Link href="/about" className={`text-lg font-semibold min-h-[44px] flex items-center ${location === "/about" ? "text-accent" : ""}`}>About</Link>
-                <Link href="/blog" className={`text-lg font-semibold min-h-[44px] flex items-center ${location === "/blog" ? "text-accent" : ""}`}>Blog</Link>
                 <Link href="/contact" className={`text-lg font-semibold min-h-[44px] flex items-center ${location === "/contact" ? "text-accent" : ""}`}>Contact</Link>
                 <Link href="/contact" className="mt-4 px-6 py-3 text-center rounded-xl bg-warning text-warning-foreground font-semibold min-h-[44px] flex items-center justify-center">
-                  Get a Quote
+                  Book a Consultation
                 </Link>
               </nav>
             </motion.div>
@@ -290,6 +287,8 @@ export function Layout({ children }: { children: ReactNode }) {
       <main id="main-content" className="flex-grow pt-20" role="main">
         {children}
       </main>
+
+      <BackToTop />
 
       <footer className="bg-primary text-primary-foreground pt-20 pb-10" role="contentinfo">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -327,7 +326,6 @@ export function Layout({ children }: { children: ReactNode }) {
               <h4 className="font-display font-semibold text-lg mb-6 text-primary-foreground">Company</h4>
               <ul className="space-y-4 text-sm text-primary-foreground/70">
                 <li><Link href="/about" className="hover:text-accent transition-colors">About Us</Link></li>
-                <li><Link href="/blog" className="hover:text-accent transition-colors">Blog</Link></li>
                 <li><Link href="/contact" className="hover:text-accent transition-colors">Contact</Link></li>
                 <li><Link href="/privacy" className="hover:text-accent transition-colors">Privacy Policy</Link></li>
                 <li><Link href="/terms" className="hover:text-accent transition-colors">Terms of Service</Link></li>
@@ -357,6 +355,35 @@ export function Layout({ children }: { children: ReactNode }) {
   );
 }
 
+function BackToTop() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setVisible(window.scrollY > 400);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <AnimatePresence>
+      {visible && (
+        <motion.button
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 20 }}
+          transition={{ duration: 0.2 }}
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="fixed bottom-6 left-6 z-40 w-12 h-12 rounded-full bg-primary text-primary-foreground shadow-lg hover:bg-primary/90 transition-colors flex items-center justify-center"
+          aria-label="Back to top"
+          type="button"
+        >
+          <ArrowUp className="w-5 h-5" />
+        </motion.button>
+      )}
+    </AnimatePresence>
+  );
+}
+
 export function FloatingCTA() {
   const [location] = useLocation();
   const isServicePage = location.startsWith('/services/');
@@ -373,9 +400,9 @@ export function FloatingCTA() {
       <Link
         href="/contact"
         className="flex items-center gap-2 px-6 py-4 rounded-full bg-accent text-white font-bold shadow-xl shadow-accent/30 hover:shadow-2xl hover:shadow-accent/40 hover:-translate-y-1 transition-all group"
-        aria-label="Request a Quote"
+        aria-label="Get a Free Quote"
       >
-        <span>Request a Quote</span>
+        <span>Get a Free Quote</span>
         <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
       </Link>
     </motion.div>
