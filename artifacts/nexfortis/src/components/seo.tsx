@@ -10,7 +10,8 @@ interface SEOProps {
 }
 
 const SITE_NAME = "NexFortis IT Solutions";
-const SITE_URL = "https://nexfortis.com";
+// Set VITE_SITE_URL to the live deployment domain (e.g. https://nexfortis.com)
+export const SITE_URL = import.meta.env.VITE_SITE_URL || "https://nexfortis.com";
 const DEFAULT_IMAGE = "/opengraph.png";
 
 export function SEO({ title, description, path = "/", type = "website", image, noIndex }: SEOProps) {
@@ -24,6 +25,9 @@ export function SEO({ title, description, path = "/", type = "website", image, n
       <meta name="description" content={description} />
       <link rel="canonical" href={fullUrl} />
       {noIndex && <meta name="robots" content="noindex,nofollow" />}
+
+      <link rel="alternate" hrefLang="en-ca" href={fullUrl} />
+      <link rel="alternate" hrefLang="en" href={fullUrl} />
 
       <meta property="og:type" content={type} />
       <meta property="og:title" content={fullTitle} />
@@ -47,8 +51,8 @@ export function OrganizationSchema() {
     "@type": "Organization",
     name: "NexFortis IT Solutions",
     legalName: "17756968 Canada Inc.",
-    url: "https://nexfortis.com",
-    logo: "https://nexfortis.com/images/logo-original.svg",
+    url: SITE_URL,
+    logo: `${SITE_URL}/images/logo-original.svg`,
     description: "NexFortis delivers end-to-end IT solutions for Canadian businesses including managed IT, Microsoft 365, QuickBooks migration, digital marketing, and workflow automation.",
     contactPoint: {
       "@type": "ContactPoint",
@@ -76,17 +80,83 @@ export function OrganizationSchema() {
   );
 }
 
+export function LocalBusinessSchema() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: "NexFortis IT Solutions",
+    image: `${SITE_URL}/images/logo-original.svg`,
+    url: SITE_URL,
+    telephone: "+1-800-555-0199",
+    email: "contact@nexfortis.com",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "204 Hill Farm Rd",
+      addressLocality: "Nobleton",
+      addressRegion: "ON",
+      postalCode: "L7B 0A1",
+      addressCountry: "CA",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 43.9217,
+      longitude: -79.6542,
+    },
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "09:00",
+      closes: "17:00",
+    },
+    priceRange: "$$",
+    areaServed: {
+      "@type": "Country",
+      name: "Canada",
+    },
+    description: "NexFortis delivers end-to-end IT solutions for Canadian businesses including managed IT, Microsoft 365, QuickBooks migration, digital marketing, and workflow automation.",
+  };
+
+  return (
+    <Helmet>
+      <script type="application/ld+json">{JSON.stringify(schema)}</script>
+    </Helmet>
+  );
+}
+
+export function WebSiteSchema() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "NexFortis IT Solutions",
+    url: SITE_URL,
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${SITE_URL}/search?q={search_term_string}`,
+      },
+      "query-input": "required name=search_term_string",
+    },
+  };
+
+  return (
+    <Helmet>
+      <script type="application/ld+json">{JSON.stringify(schema)}</script>
+    </Helmet>
+  );
+}
+
 export function ServiceSchema({ name, description, url }: { name: string; description: string; url?: string }) {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Service",
     name,
     description,
-    url: url || "https://nexfortis.com/services",
+    url: url || `${SITE_URL}/services`,
     provider: {
       "@type": "Organization",
       name: "NexFortis IT Solutions",
-      url: "https://nexfortis.com",
+      url: SITE_URL,
     },
     areaServed: {
       "@type": "Country",
@@ -160,7 +230,7 @@ export function ArticleSchema({ title, description, datePublished, dateModified,
     publisher: {
       "@type": "Organization",
       name: "NexFortis IT Solutions",
-      logo: { "@type": "ImageObject", url: "https://nexfortis.com/images/logo-original.svg" },
+      logo: { "@type": "ImageObject", url: `${SITE_URL}/images/logo-original.svg` },
     },
     author: {
       "@type": "Organization",

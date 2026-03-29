@@ -1,5 +1,5 @@
 import { PageHero, Section, SectionHeader, FAQItem } from "@/components/ui-elements";
-import { SEO, ServiceSchema, BreadcrumbSchema, FAQSchema } from "@/components/seo";
+import { SEO, ServiceSchema, BreadcrumbSchema, FAQSchema, SITE_URL } from "@/components/seo";
 import { ArrowRight, Database, Wrench, ShieldAlert, CheckCircle2, DollarSign, ClipboardList, Zap, FileCheck, Headphones } from "lucide-react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
@@ -70,11 +70,11 @@ export default function QuickBooks() {
   return (
     <div>
       <SEO title="QuickBooks Migration, Recovery & Add-On Tools" description="Certified QuickBooks ProAdvisor team offering 100% accuracy-guaranteed data migration from Sage, SAP, Xero, and more. File recovery, custom add-ons, and same-day service available." path="/services/quickbooks" />
-      <ServiceSchema name="QuickBooks Migration & Tools" description="QuickBooks data migration, file recovery, and custom add-on tools for Canadian businesses. Certified ProAdvisor team." url="https://nexfortis.com/services/quickbooks" />
+      <ServiceSchema name="QuickBooks Migration & Tools" description="QuickBooks data migration, file recovery, and custom add-on tools for Canadian businesses. Certified ProAdvisor team." url={`${SITE_URL}/services/quickbooks`} />
       <BreadcrumbSchema items={[
-        { name: "Home", url: "https://nexfortis.com/" },
-        { name: "Services", url: "https://nexfortis.com/services" },
-        { name: "QuickBooks Solutions", url: "https://nexfortis.com/services/quickbooks" },
+        { name: "Home", url: `${SITE_URL}/` },
+        { name: "Services", url: `${SITE_URL}/services` },
+        { name: "QuickBooks Solutions", url: `${SITE_URL}/services/quickbooks` },
       ]} />
       <FAQSchema faqs={qbFaqs} />
       <div className="bg-primary pt-20 pb-0">

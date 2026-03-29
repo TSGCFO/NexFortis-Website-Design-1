@@ -1,5 +1,5 @@
 import { Section, SectionHeader, PageHero } from "@/components/ui-elements";
-import { SEO, BreadcrumbSchema } from "@/components/seo";
+import { SEO, BreadcrumbSchema, SITE_URL } from "@/components/seo";
 import { Monitor, Cloud, Database, Cog, LayoutDashboard, ArrowRight, CheckCircle2 } from "lucide-react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
@@ -62,8 +62,8 @@ export default function ServicesOverview() {
       />
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: "https://nexfortis.com/" },
-          { name: "Services", url: "https://nexfortis.com/services" },
+          { name: "Home", url: `${SITE_URL}/` },
+          { name: "Services", url: `${SITE_URL}/services` },
         ]}
       />
       <PageHero

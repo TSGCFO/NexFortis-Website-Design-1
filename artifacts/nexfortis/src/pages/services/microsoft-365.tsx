@@ -1,5 +1,5 @@
 import { PageHero, Section, SectionHeader, FAQItem } from "@/components/ui-elements";
-import { SEO, ServiceSchema, BreadcrumbSchema, FAQSchema } from "@/components/seo";
+import { SEO, ServiceSchema, BreadcrumbSchema, FAQSchema, SITE_URL } from "@/components/seo";
 import { Check, ShieldCheck, Mail, Users, MonitorSmartphone, ArrowRight, Cloud, Lock, Smartphone } from "lucide-react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
@@ -61,11 +61,11 @@ export default function Microsoft365() {
   return (
     <div>
       <SEO title="Microsoft 365 for Canadian Businesses" description="Microsoft Authorized Partner for M365 deployment: zero-downtime email migration, Teams & SharePoint setup, Intune MDM, and zero-trust security for Canadian businesses." path="/services/microsoft-365" />
-      <ServiceSchema name="Microsoft 365 Solutions" description="Microsoft 365 deployment, email migration, Teams, Intune MDM, and enterprise security for Canadian businesses." url="https://nexfortis.com/services/microsoft-365" />
+      <ServiceSchema name="Microsoft 365 Solutions" description="Microsoft 365 deployment, email migration, Teams, Intune MDM, and enterprise security for Canadian businesses." url={`${SITE_URL}/services/microsoft-365`} />
       <BreadcrumbSchema items={[
-        { name: "Home", url: "https://nexfortis.com/" },
-        { name: "Services", url: "https://nexfortis.com/services" },
-        { name: "Microsoft 365", url: "https://nexfortis.com/services/microsoft-365" },
+        { name: "Home", url: `${SITE_URL}/` },
+        { name: "Services", url: `${SITE_URL}/services` },
+        { name: "Microsoft 365", url: `${SITE_URL}/services/microsoft-365` },
       ]} />
       <FAQSchema faqs={m365Faqs} />
       <div className="bg-primary pt-20 pb-0">

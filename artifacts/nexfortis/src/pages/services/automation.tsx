@@ -1,5 +1,5 @@
 import { PageHero, Section, SectionHeader, FAQItem } from "@/components/ui-elements";
-import { SEO, ServiceSchema, BreadcrumbSchema, FAQSchema } from "@/components/seo";
+import { SEO, ServiceSchema, BreadcrumbSchema, FAQSchema, SITE_URL } from "@/components/seo";
 import { Zap, Code2, GitMerge, ArrowRight, CheckCircle2, Workflow, Bot, Layers, MessageCircle, FileCode, FlaskConical, Rocket } from "lucide-react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
@@ -83,11 +83,11 @@ export default function AutomationSoftware() {
   return (
     <div>
       <SEO title="Workflow Automation & Custom Software Development" description="Eliminate manual data entry with Power Automate, Zapier, and custom API integrations. NexFortis builds bespoke web applications and automated workflows for Canadian businesses." path="/services/automation-software" />
-      <ServiceSchema name="Workflow Automation & Custom Software" description="Custom workflow automation, API integrations, and full-stack web application development for Canadian businesses." url="https://nexfortis.com/services/automation-software" />
+      <ServiceSchema name="Workflow Automation & Custom Software" description="Custom workflow automation, API integrations, and full-stack web application development for Canadian businesses." url={`${SITE_URL}/services/automation-software`} />
       <BreadcrumbSchema items={[
-        { name: "Home", url: "https://nexfortis.com/" },
-        { name: "Services", url: "https://nexfortis.com/services" },
-        { name: "Workflow Automation", url: "https://nexfortis.com/services/automation-software" },
+        { name: "Home", url: `${SITE_URL}/` },
+        { name: "Services", url: `${SITE_URL}/services` },
+        { name: "Workflow Automation", url: `${SITE_URL}/services/automation-software` },
       ]} />
       <FAQSchema faqs={autoFaqs} />
       <div className="bg-primary pt-20 pb-0">

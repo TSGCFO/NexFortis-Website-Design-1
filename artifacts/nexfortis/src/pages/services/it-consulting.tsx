@@ -1,5 +1,5 @@
 import { PageHero, Section, SectionHeader, FAQItem } from "@/components/ui-elements";
-import { SEO, ServiceSchema, BreadcrumbSchema, FAQSchema } from "@/components/seo";
+import { SEO, ServiceSchema, BreadcrumbSchema, FAQSchema, SITE_URL } from "@/components/seo";
 import { Map, ListChecks, SearchCheck, ArrowRight, Shield, TrendingUp, Clock, CheckCircle2, MessageCircle, Target, Rocket, BarChart2 } from "lucide-react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
@@ -69,11 +69,11 @@ export default function ITConsulting() {
   return (
     <div>
       <SEO title="IT Consulting & Managed IT Services" description="Virtual CIO services, strategic IT consulting, technology audits, and project management for Canadian businesses. Reduce costs, close security gaps, and modernize your infrastructure." path="/services/it-consulting" />
-      <ServiceSchema name="IT Consulting & Project Management" description="Strategic IT consulting, project management, technology audits, and virtual CIO services for Canadian businesses." url="https://nexfortis.com/services/it-consulting" />
+      <ServiceSchema name="IT Consulting & Project Management" description="Strategic IT consulting, project management, technology audits, and virtual CIO services for Canadian businesses." url={`${SITE_URL}/services/it-consulting`} />
       <BreadcrumbSchema items={[
-        { name: "Home", url: "https://nexfortis.com/" },
-        { name: "Services", url: "https://nexfortis.com/services" },
-        { name: "IT Consulting", url: "https://nexfortis.com/services/it-consulting" },
+        { name: "Home", url: `${SITE_URL}/` },
+        { name: "Services", url: `${SITE_URL}/services` },
+        { name: "IT Consulting", url: `${SITE_URL}/services/it-consulting` },
       ]} />
       <FAQSchema faqs={consultingFaqs} />
       <div className="bg-primary pt-20 pb-0">
@@ -130,7 +130,7 @@ export default function ITConsulting() {
                   <div className="w-16 h-16 rounded-2xl bg-accent/10 flex items-center justify-center text-accent mb-6">
                     <svc.icon className="w-8 h-8" />
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-primary mb-4">{svc.title}</h3>
+                  <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">{svc.title}</h2>
                   <p className="text-lg text-muted-foreground leading-relaxed mb-6">{svc.desc}</p>
                   <ul className="space-y-3">
                     {svc.highlights.map((h, j) => (

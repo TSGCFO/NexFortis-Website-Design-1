@@ -1,5 +1,5 @@
 import { PageHero, Section, SectionHeader, FAQItem } from "@/components/ui-elements";
-import { SEO, ServiceSchema, BreadcrumbSchema, FAQSchema } from "@/components/seo";
+import { SEO, ServiceSchema, BreadcrumbSchema, FAQSchema, SITE_URL } from "@/components/seo";
 import { Globe, Server, Search, PenTool, BarChart, Settings, ArrowRight, CheckCircle2 } from "lucide-react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
@@ -51,11 +51,11 @@ export default function DigitalMarketing() {
   return (
     <div>
       <SEO title="Digital Marketing & Web Presence" description="Full-service digital marketing for Canadian businesses: custom web design, SEO optimization, Google Ads management, and content creation. Drive traffic and convert visitors." path="/services/digital-marketing" />
-      <ServiceSchema name="Digital Marketing & Web Presence" description="Full-service digital marketing including web design, hosting, SEO, Google Ads, and content creation for Canadian businesses." url="https://nexfortis.com/services/digital-marketing" />
+      <ServiceSchema name="Digital Marketing & Web Presence" description="Full-service digital marketing including web design, hosting, SEO, Google Ads, and content creation for Canadian businesses." url={`${SITE_URL}/services/digital-marketing`} />
       <BreadcrumbSchema items={[
-        { name: "Home", url: "https://nexfortis.com/" },
-        { name: "Services", url: "https://nexfortis.com/services" },
-        { name: "Digital Marketing", url: "https://nexfortis.com/services/digital-marketing" },
+        { name: "Home", url: `${SITE_URL}/` },
+        { name: "Services", url: `${SITE_URL}/services` },
+        { name: "Digital Marketing", url: `${SITE_URL}/services/digital-marketing` },
       ]} />
       <FAQSchema faqs={dmFaqs} />
       <div className="bg-primary pt-20 pb-0">

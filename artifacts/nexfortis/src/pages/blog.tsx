@@ -1,5 +1,5 @@
 import { PageHero, Section } from "@/components/ui-elements";
-import { SEO, BreadcrumbSchema } from "@/components/seo";
+import { SEO, BreadcrumbSchema, SITE_URL } from "@/components/seo";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import { Link } from "wouter";
 import { useQuery } from "@tanstack/react-query";
@@ -55,8 +55,8 @@ export default function Blog() {
       />
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: "https://nexfortis.com/" },
-          { name: "Blog", url: "https://nexfortis.com/blog" },
+          { name: "Home", url: `${SITE_URL}/` },
+          { name: "Blog", url: `${SITE_URL}/blog` },
         ]}
       />
       <PageHero
@@ -116,9 +116,9 @@ export default function Blog() {
                       {featured.readTime ?? estimateReadTime(featured.excerpt)} min read
                     </span>
                   </div>
-                  <h2 className="text-2xl md:text-3xl font-display font-bold text-primary mb-4 group-hover:text-accent transition-colors leading-tight">
+                  <h3 className="text-2xl md:text-3xl font-display font-bold text-primary mb-4 group-hover:text-accent transition-colors leading-tight">
                     {featured.title}
-                  </h2>
+                  </h3>
                   <p className="text-muted-foreground leading-relaxed mb-6">
                     {featured.excerpt}
                   </p>
@@ -176,9 +176,9 @@ export default function Blog() {
                           {post.readTime ?? estimateReadTime(post.excerpt)} min read
                         </span>
                       </div>
-                      <h2 className="text-lg font-bold text-primary mb-3 group-hover:text-accent transition-colors leading-snug">
+                      <h3 className="text-lg font-bold text-primary mb-3 group-hover:text-accent transition-colors leading-snug">
                         {post.title}
-                      </h2>
+                      </h3>
                       <p className="text-muted-foreground text-sm mb-6 flex-grow leading-relaxed line-clamp-3">
                         {post.excerpt}
                       </p>

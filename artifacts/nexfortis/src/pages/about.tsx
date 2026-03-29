@@ -74,7 +74,7 @@ export default function About() {
                   <Icon className="w-7 h-7" />
                 </div>
                 <div>
-                  <h4 className="text-xl font-bold text-primary mb-2">{val.title}</h4>
+                  <h3 className="text-xl font-bold text-primary mb-2">{val.title}</h3>
                   <p className="text-muted-foreground leading-relaxed">{val.desc}</p>
                 </div>
               </motion.div>
