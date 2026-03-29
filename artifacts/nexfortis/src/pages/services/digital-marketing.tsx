@@ -1,5 +1,6 @@
 import { PageHero, Section, SectionHeader, FAQItem } from "@/components/ui-elements";
 import { SEO, ServiceSchema, BreadcrumbSchema, FAQSchema, SITE_URL } from "@/components/seo";
+import { GooglePartnerBadge } from "@/components/google-partner-badge";
 import { Globe, Server, Search, PenTool, BarChart, Settings, ArrowRight, CheckCircle2 } from "lucide-react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
@@ -75,6 +76,12 @@ export default function DigitalMarketing() {
         title="Digital Marketing & Web Presence" 
         subtitle="Your digital storefront matters. We build, host, and optimize your online presence to attract and convert."
       />
+
+      <div className="bg-white border-b border-border py-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center">
+          <GooglePartnerBadge showDisclaimer />
+        </div>
+      </div>
 
       <Section bg="white">
         <div className="grid lg:grid-cols-2 gap-16 items-center">

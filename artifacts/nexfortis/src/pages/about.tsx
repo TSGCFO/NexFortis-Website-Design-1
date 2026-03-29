@@ -1,5 +1,6 @@
 import { PageHero, Section, SectionHeader } from "@/components/ui-elements";
 import { SEO } from "@/components/seo";
+import { GooglePartnerBadge } from "@/components/google-partner-badge";
 import { Target, Lightbulb, Users, Minimize2, ArrowRight } from "lucide-react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
@@ -39,8 +40,11 @@ export default function About() {
                 Over the years, we've had the privilege of working with Canadian businesses across healthcare, legal, finance, retail, manufacturing, and professional services. Each industry brings unique challenges — from PIPEDA-compliant data handling in medical clinics to real-time inventory integrations for e-commerce retailers — and our team has built deep domain expertise to address them all. We understand that Canadian businesses face a distinct regulatory landscape, and we design every solution with privacy, compliance, and data residency at the forefront.
               </p>
               <p>
-                As a Microsoft Authorized Partner and certified QuickBooks ProAdvisor team, NexFortis brings credentials that matter. Our engineers hold current certifications across the Microsoft 365 ecosystem, Azure cloud services, and Intune device management. Combined with our ProAdvisor expertise in QuickBooks Online and Desktop, we offer a rare blend of cloud productivity and financial systems knowledge that most IT firms simply can't match. It's this combination of certifications, Canadian-first privacy practices, and a genuine commitment to long-term client relationships that sets NexFortis apart in a crowded market.
+                As a Microsoft Authorized Partner, Google Partner, and certified QuickBooks ProAdvisor team, NexFortis brings credentials that matter. Our engineers hold current certifications across the Microsoft 365 ecosystem, Azure cloud services, and Intune device management. Combined with our ProAdvisor expertise in QuickBooks Online and Desktop, we offer a rare blend of cloud productivity and financial systems knowledge that most IT firms simply can't match. It's this combination of certifications, Canadian-first privacy practices, and a genuine commitment to long-term client relationships that sets NexFortis apart in a crowded market.
               </p>
+              <div className="mt-8 flex flex-wrap items-center gap-8">
+                <GooglePartnerBadge />
+              </div>
             </div>
           </div>
           <div className="bg-secondary rounded-3xl p-10 border border-border">

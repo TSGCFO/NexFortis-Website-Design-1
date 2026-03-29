@@ -3,6 +3,7 @@ import { Link, useLocation } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown, Monitor, Database, Cloud, Cog, LayoutDashboard, ArrowRight, ArrowUp, Sun, Moon, MonitorSmartphone } from "lucide-react";
 import { useTheme } from "@/hooks/use-theme";
+import { GooglePartnerBadge } from "@/components/google-partner-badge";
 
 const services = [
   { name: "Digital Marketing", href: "/services/digital-marketing", icon: Monitor },
@@ -342,7 +343,7 @@ export function Layout({ children }: { children: ReactNode }) {
             </div>
           </div>
 
-          <div className="border-t border-primary-foreground/10 pt-8 pb-8 flex justify-center items-center gap-8">
+          <div className="border-t border-primary-foreground/10 pt-8 mb-6 flex flex-wrap justify-center items-center gap-8">
             <img
               src={`${import.meta.env.BASE_URL}images/badges/microsoft-partner-badge.png`}
               alt="Microsoft Authorized Partner"
@@ -350,6 +351,7 @@ export function Layout({ children }: { children: ReactNode }) {
               loading="lazy"
               onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
             />
+            <GooglePartnerBadge variant="footer" />
           </div>
 
           <div className="border-t border-primary-foreground/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-primary-foreground/50">

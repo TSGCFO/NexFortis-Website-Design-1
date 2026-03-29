@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
+import { GooglePartnerBadge } from "@/components/google-partner-badge";
 import {
   ShieldCheck, Monitor, Cloud, Database, Cog, LayoutDashboard,
   ArrowRight, CheckCircle2, Users, Award, Clock, Globe,
@@ -239,6 +240,7 @@ export default function Home() {
               <Database className="w-8 h-8 text-accent" aria-hidden="true" />
               QuickBooks ProAdvisor
             </div>
+            <GooglePartnerBadge />
           </div>
         </div>
       </section>
