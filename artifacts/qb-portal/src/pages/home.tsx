@@ -54,7 +54,7 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Link href="/order">
-              <Button size="lg" className="bg-[#f0a500] text-[#1a2744] hover:bg-[#f0a500]/90 font-bold text-lg px-8 gap-2">
+              <Button size="lg" className="bg-[#B76E79] text-white hover:bg-[#A35D68] font-bold text-lg px-8 gap-2">
                 Get Started <ArrowRight className="w-5 h-5" />
               </Button>
             </Link>
@@ -142,14 +142,14 @@ export default function Home() {
                     {svc.badge === "available" ? (
                       <span className="px-2 py-0.5 rounded-full bg-[#28a745]/10 text-[#28a745] text-xs font-semibold">Available</span>
                     ) : (
-                      <span className="px-2 py-0.5 rounded-full bg-[#ff6b35]/10 text-[#ff6b35] text-xs font-semibold badge-coming-soon">Coming Soon</span>
+                      <span className="px-2 py-0.5 rounded-full bg-[#B76E79]/10 text-[#B76E79] text-xs font-semibold badge-coming-soon">Coming Soon</span>
                     )}
                   </div>
                   <p className="text-sm text-muted-foreground mb-4">{svc.desc}</p>
                   <div className="flex items-center justify-between">
                     <span className="font-bold text-[#f0a500]">{svc.price}</span>
                     <Link href={svc.href}>
-                      <Button size="sm" variant={svc.badge === "available" ? "default" : "outline"} className={svc.badge === "available" ? "bg-[#1a2744] hover:bg-[#1a2744]/90" : ""}>
+                      <Button size="sm" variant={svc.badge === "available" ? "default" : "outline"} className={svc.badge === "available" ? "bg-[#B76E79] hover:bg-[#A35D68] text-white" : "text-[#B76E79] border-[#B76E79]/30 hover:bg-[#B76E79]/5"}>
                         {svc.badge === "available" ? "Order Now" : "Join Waitlist"}
                       </Button>
                     </Link>
@@ -187,7 +187,7 @@ export default function Home() {
           <h2 className="text-3xl font-bold mb-4">Ready to Convert Your QuickBooks File?</h2>
           <p className="text-white/70 mb-8">Get started in minutes. Your converted file will be delivered in under 1 hour.</p>
           <Link href="/order">
-            <Button size="lg" className="bg-[#f0a500] text-[#1a2744] hover:bg-[#f0a500]/90 font-bold text-lg px-8 gap-2">
+            <Button size="lg" className="bg-[#B76E79] text-white hover:bg-[#A35D68] font-bold text-lg px-8 gap-2">
               Start Your Conversion <ArrowRight className="w-5 h-5" />
             </Button>
           </Link>

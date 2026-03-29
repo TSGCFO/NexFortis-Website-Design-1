@@ -111,7 +111,7 @@ function ProductCard({ product }: { product: Product }) {
           {isAvailable ? (
             <span className="px-2 py-0.5 rounded-full bg-[#28a745]/10 text-[#28a745] text-xs font-semibold shrink-0">Available</span>
           ) : (
-            <span className="px-2 py-0.5 rounded-full bg-[#ff6b35]/10 text-[#ff6b35] text-xs font-semibold badge-coming-soon shrink-0">Coming Soon</span>
+            <span className="px-2 py-0.5 rounded-full bg-[#B76E79]/10 text-[#B76E79] text-xs font-semibold badge-coming-soon shrink-0">Coming Soon</span>
           )}
         </div>
         <p className="text-xs text-muted-foreground mb-3 line-clamp-2">{product.description}</p>
@@ -125,11 +125,11 @@ function ProductCard({ product }: { product: Product }) {
           </div>
           {isAvailable ? (
             <Link href={`/service/${product.slug}`}>
-              <Button size="sm" className="bg-[#1a2744] hover:bg-[#1a2744]/90 text-xs">Order Now</Button>
+              <Button size="sm" className="bg-[#B76E79] hover:bg-[#A35D68] text-white text-xs">Order Now</Button>
             </Link>
           ) : (
             <Link href={`/waitlist?product=${product.slug}`}>
-              <Button size="sm" variant="outline" className="text-xs text-[#ff6b35] border-[#ff6b35]/30 hover:bg-[#ff6b35]/5">Join Waitlist</Button>
+              <Button size="sm" variant="outline" className="text-xs text-[#B76E79] border-[#B76E79]/30 hover:bg-[#B76E79]/5">Join Waitlist</Button>
             </Link>
           )}
         </div>

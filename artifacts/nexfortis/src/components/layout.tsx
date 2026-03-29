@@ -232,7 +232,7 @@ export function Layout({ children }: { children: ReactNode }) {
 
           <div className="hidden md:flex items-center gap-3">
             <ThemeToggle />
-            <Link href="/contact" className="px-6 py-2.5 rounded-full bg-warning text-warning-foreground font-semibold text-sm hover:bg-warning/90 hover:shadow-lg hover:shadow-warning/20 transition-all hover:-translate-y-0.5">
+            <Link href="/contact" className="px-6 py-2.5 rounded-full bg-warning text-warning-foreground font-semibold text-sm hover:bg-warning-hover hover:shadow-lg hover:shadow-warning/20 transition-all hover:-translate-y-0.5">
               Book a Consultation
             </Link>
           </div>
@@ -399,7 +399,7 @@ export function FloatingCTA() {
     >
       <Link
         href="/contact"
-        className="flex items-center gap-2 px-6 py-4 rounded-full bg-accent text-white font-bold shadow-xl shadow-accent/30 hover:shadow-2xl hover:shadow-accent/40 hover:-translate-y-1 transition-all group"
+        className="flex items-center gap-2 px-6 py-4 rounded-full bg-warning text-warning-foreground font-bold shadow-xl shadow-warning/30 hover:bg-warning-hover hover:shadow-2xl hover:shadow-warning/40 hover:-translate-y-1 transition-all group"
         aria-label="Get a Free Quote"
       >
         <span>Get a Free Quote</span>

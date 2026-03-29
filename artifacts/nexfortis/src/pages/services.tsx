@@ -112,7 +112,7 @@ export default function ServicesOverview() {
                 </div>
 
                 <div className="flex-1 w-full">
-                  <div className="relative bg-secondary rounded-3xl p-14 border border-border shadow-xl flex items-center justify-center aspect-square max-w-sm mx-auto">
+                  <div className="relative bg-secondary rounded-3xl p-14 border border-border shadow-xl flex items-center justify-center aspect-square max-w-sm mx-auto hover:border-l-4 hover:border-l-[#B76E79] transition-all">
                     <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-primary/5 rounded-3xl" aria-hidden="true" />
                     <Icon className="w-28 h-28 text-accent/25 relative z-10" aria-hidden="true" />
                     <div className="absolute top-8 right-8 w-4 h-4 rounded-full bg-accent/30" aria-hidden="true" />
@@ -134,7 +134,7 @@ export default function ServicesOverview() {
         <div className="text-center mt-4">
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-8 py-4 min-h-[48px] rounded-xl bg-warning text-warning-foreground font-bold text-lg hover:bg-warning/90 hover:-translate-y-0.5 transition-all shadow-xl shadow-warning/20"
+            className="inline-flex items-center gap-2 px-8 py-4 min-h-[48px] rounded-xl bg-warning text-warning-foreground font-bold text-lg hover:bg-warning-hover hover:-translate-y-0.5 transition-all shadow-xl shadow-warning/20"
           >
             Book a Consultation <ArrowRight className="w-5 h-5" aria-hidden="true" />
           </Link>

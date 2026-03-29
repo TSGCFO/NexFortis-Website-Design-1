@@ -60,7 +60,7 @@ export default function ServiceDetail() {
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-3 mb-3">
                 <h1 className="text-3xl md:text-4xl font-bold">{product.name}</h1>
-                <span className={`px-3 py-1 rounded-full text-xs font-semibold ${isAvailable ? "bg-green-500/20 text-green-300" : "bg-[#f0a500]/20 text-[#f0a500]"}`}>
+                <span className={`px-3 py-1 rounded-full text-xs font-semibold ${isAvailable ? "bg-green-500/20 text-green-300" : "bg-[#B76E79]/20 text-[#B76E79]"}`}>
                   {isAvailable ? "Available Now" : "Coming Soon"}
                 </span>
               </div>
@@ -137,19 +137,19 @@ export default function ServiceDetail() {
             </div>
 
             <div className="space-y-6">
-              <Card className="border-[#f0a500]/30">
+              <Card className="border-[#B76E79]/30">
                 <CardContent className="p-6 text-center">
                   <p className="text-3xl font-bold text-[#f0a500] mb-2">{formatPrice(product.price_cad)}</p>
                   {product.turnaround && <p className="text-sm text-muted-foreground mb-4"><Clock className="w-4 h-4 inline mr-1" />Turnaround: {product.turnaround}</p>}
                   {isAvailable ? (
                     <Link href={`/order?service=${product.id}`}>
-                      <Button className="w-full bg-[#f0a500] text-[#1a2744] hover:bg-[#f0a500]/90 font-bold gap-2" size="lg">
+                      <Button className="w-full bg-[#B76E79] text-white hover:bg-[#A35D68] font-bold gap-2" size="lg">
                         Order Now <ArrowRight className="w-4 h-4" />
                       </Button>
                     </Link>
                   ) : (
                     <Link href={`/waitlist?product=${product.slug}`}>
-                      <Button className="w-full bg-[#1a2744] font-bold" size="lg">
+                      <Button className="w-full bg-[#B76E79] text-white hover:bg-[#A35D68] font-bold" size="lg">
                         Join Waitlist
                       </Button>
                     </Link>
@@ -192,7 +192,7 @@ export default function ServiceDetail() {
                         <p className="text-xs text-muted-foreground mb-2 line-clamp-2">{rp.description}</p>
                         <div className="flex items-center justify-between">
                           <span className="font-bold text-[#f0a500] text-sm">{formatPrice(rp.price_cad)}</span>
-                          <span className={`px-2 py-0.5 rounded-full text-xs ${rp.badge === "available" ? "bg-green-100 text-green-700" : "bg-[#f0a500]/10 text-[#f0a500]"}`}>
+                          <span className={`px-2 py-0.5 rounded-full text-xs ${rp.badge === "available" ? "bg-green-100 text-green-700" : "bg-[#B76E79]/10 text-[#B76E79]"}`}>
                             {rp.badge === "available" ? "Available" : "Coming Soon"}
                           </span>
                         </div>

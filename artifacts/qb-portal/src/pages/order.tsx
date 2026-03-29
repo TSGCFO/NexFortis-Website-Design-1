@@ -286,13 +286,13 @@ export default function Order() {
                         <div className="flex items-center gap-2">
                           <span className="font-medium text-sm">{svc.name}</span>
                           {!svc.available && (
-                            <span className="px-2 py-0.5 rounded-full bg-[#ff6b35]/10 text-[#ff6b35] text-xs font-semibold">{svc.target}</span>
+                            <span className="px-2 py-0.5 rounded-full bg-[#B76E79]/10 text-[#B76E79] text-xs font-semibold">{svc.target}</span>
                           )}
                         </div>
                       </div>
                       <span className="font-bold text-[#f0a500]">${svc.price} CAD</span>
                       {!svc.available && (
-                        <Link href={`/waitlist?product=${svc.slug}`} className="text-xs text-[#ff6b35] underline" onClick={(e: React.MouseEvent) => e.stopPropagation()}>
+                        <Link href={`/waitlist?product=${svc.slug}`} className="text-xs text-[#B76E79] underline" onClick={(e: React.MouseEvent) => e.stopPropagation()}>
                           Join Waitlist
                         </Link>
                       )}
@@ -324,7 +324,7 @@ export default function Order() {
                         />
                         <div className="flex-1">
                           <span className="font-medium text-sm">{addon.name}</span>
-                          {!addon.available && <span className="ml-2 px-2 py-0.5 rounded-full bg-[#ff6b35]/10 text-[#ff6b35] text-xs font-semibold">Coming Soon</span>}
+                          {!addon.available && <span className="ml-2 px-2 py-0.5 rounded-full bg-[#B76E79]/10 text-[#B76E79] text-xs font-semibold">Coming Soon</span>}
                         </div>
                         <span className="font-bold text-[#f0a500]">+${addon.price} CAD</span>
                       </label>
@@ -437,7 +437,7 @@ export default function Order() {
                 <Button
                   type="submit"
                   disabled={!canSubmit || submitting}
-                  className="w-full mt-6 bg-[#f0a500] text-[#1a2744] hover:bg-[#f0a500]/90 font-bold text-lg py-3"
+                  className="w-full mt-6 bg-[#B76E79] text-white hover:bg-[#A35D68] font-bold text-lg py-3"
                   size="lg"
                 >
                   {submitting ? "Processing..." : `Upload & Pay $${total} CAD`}

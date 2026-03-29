@@ -69,6 +69,7 @@
 
   --color-warning: hsl(var(--warning));
   --color-warning-foreground: hsl(var(--warning-foreground));
+  --color-warning-hover: hsl(var(--warning-hover));
 
   --font-sans: 'Inter', sans-serif;
   --font-display: 'Outfit', sans-serif;
@@ -104,8 +105,9 @@
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
 
-  --warning: 31 100% 48%;
+  --warning: 351 34% 57%;
   --warning-foreground: 0 0% 100%;
+  --warning-hover: 351 28% 50%;
   
   --border: 214 32% 91%;
   --input: 214 32% 91%;
@@ -139,8 +141,9 @@
   --destructive: 0 63% 50%;
   --destructive-foreground: 210 20% 90%;
 
-  --warning: 31 100% 55%;
+  --warning: 351 34% 57%;
   --warning-foreground: 0 0% 100%;
+  --warning-hover: 351 28% 50%;
 
   --border: 217 33% 22%;
   --input: 217 33% 22%;
@@ -171,17 +174,13 @@
 }
 
 .text-gradient-teal {
-  background: linear-gradient(to right, hsl(194, 80%, 65%), hsl(194, 80%, 55%));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #B76E79;
+  -webkit-text-fill-color: #B76E79;
 }
 
 .dark .text-gradient-teal {
-  background: linear-gradient(to right, hsl(194, 80%, 72%), hsl(194, 80%, 62%));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #c98a93;
+  -webkit-text-fill-color: #c98a93;
 }
 
 @media (prefers-reduced-motion: reduce) {

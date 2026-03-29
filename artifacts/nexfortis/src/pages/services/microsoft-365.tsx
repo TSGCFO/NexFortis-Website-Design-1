@@ -178,7 +178,7 @@ export default function Microsoft365() {
               <tr className="border-b-2 border-border text-left">
                 <th scope="col" className="p-4 font-display font-bold text-xl text-primary">Feature</th>
                 {tiers.map((tier, i) => (
-                  <th key={i} scope="col" className={`p-4 font-display font-bold text-xl ${i === 2 ? "text-accent" : "text-primary"}`}>
+                  <th key={i} scope="col" className={`p-4 font-display font-bold text-xl ${i === 2 ? "text-[#B76E79]" : "text-primary"}`}>
                     {tier}
                   </th>
                 ))}
@@ -194,7 +194,7 @@ export default function Microsoft365() {
                   <td className="p-4">
                     {row[2] === "\u2713" ? <Check className="text-green-500 w-5 h-5" aria-label="Included" /> : row[2]}
                   </td>
-                  <td className="p-4 font-medium text-accent">
+                  <td className="p-4 font-medium text-[#B76E79]">
                     {row[3] === "\u2713" ? <Check className="text-green-500 w-5 h-5" aria-label="Included" /> : row[3]}
                   </td>
                 </tr>
@@ -229,7 +229,7 @@ export default function Microsoft365() {
           <p className="text-lg text-white/80 mb-10">
             Get a custom Microsoft 365 deployment plan tailored to your team's size and security requirements.
           </p>
-          <Link href="/contact" className="inline-flex px-8 py-4 min-h-[48px] rounded-xl bg-warning text-white font-bold text-lg hover:bg-warning/90 transition-all items-center justify-center gap-2 hover:-translate-y-0.5">
+          <Link href="/contact" className="inline-flex px-8 py-4 min-h-[48px] rounded-xl bg-warning text-warning-foreground font-bold text-lg hover:bg-warning-hover transition-all items-center justify-center gap-2 hover:-translate-y-0.5">
             Get a Free Quote <ArrowRight className="w-5 h-5" />
           </Link>
         </div>

@@ -165,7 +165,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/contact"
-                className="w-full sm:w-auto px-8 py-4 min-h-[48px] rounded-xl bg-warning text-warning-foreground font-bold text-lg hover:bg-warning/90 hover:-translate-y-1 transition-all shadow-xl shadow-warning/20 flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-8 py-4 min-h-[48px] rounded-xl bg-warning text-warning-foreground font-bold text-lg hover:bg-warning-hover hover:-translate-y-1 transition-all shadow-xl shadow-warning/20 flex items-center justify-center gap-2"
               >
                 Book a Consultation <ArrowRight className="w-5 h-5" aria-hidden="true" />
               </Link>
@@ -455,7 +455,7 @@ export default function Home() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex px-8 py-4 min-h-[48px] rounded-xl bg-warning text-warning-foreground font-bold text-lg hover:bg-warning/90 hover:scale-105 transition-all shadow-xl shadow-warning/20 items-center justify-center gap-2"
+            className="inline-flex px-8 py-4 min-h-[48px] rounded-xl bg-warning text-warning-foreground font-bold text-lg hover:bg-warning-hover hover:scale-105 transition-all shadow-xl shadow-warning/20 items-center justify-center gap-2"
           >
             Book a Consultation <ArrowRight className="w-5 h-5" aria-hidden="true" />
           </Link>
