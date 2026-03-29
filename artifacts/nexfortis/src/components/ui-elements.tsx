@@ -90,7 +90,10 @@ export function PageHero({ title, subtitle, imagePath }: { title: string, subtit
     <div className="relative pt-32 pb-20 md:pt-48 md:pb-32 bg-primary overflow-hidden">
       {imagePath && (
         <div className="absolute inset-0 z-0">
-          <img src={imagePath} alt="" className="w-full h-full object-cover opacity-20" loading="eager" aria-hidden="true" />
+          <picture>
+            <source srcSet={imagePath.replace(/\.png$/, '.webp')} type="image/webp" />
+            <img src={imagePath} alt="" className="w-full h-full object-cover opacity-20" loading="eager" aria-hidden="true" />
+          </picture>
           <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-transparent" />
         </div>
       )}

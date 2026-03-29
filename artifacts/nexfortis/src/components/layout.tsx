@@ -119,7 +119,7 @@ export function Layout({ children }: { children: ReactNode }) {
 
   const navbarLogo = resolvedTheme === "dark"
     ? `${import.meta.env.BASE_URL}images/logo-white.png`
-    : `${import.meta.env.BASE_URL}images/logo-original.png`;
+    : `${import.meta.env.BASE_URL}images/logo-original.svg`;
 
   return (
     <div className="min-h-dvh flex flex-col font-sans">
@@ -300,6 +300,7 @@ export function Layout({ children }: { children: ReactNode }) {
                   src={`${import.meta.env.BASE_URL}images/logo-white.png`}
                   alt="NexFortis"
                   className="h-10 w-auto"
+                  loading="lazy"
                   width={160}
                   height={40}
                 />

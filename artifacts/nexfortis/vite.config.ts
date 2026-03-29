@@ -31,18 +31,21 @@ export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
-    runtimeErrorOverlay(),
-    ...(process.env.NODE_ENV !== "production" &&
-    process.env.REPL_ID !== undefined
+    ...(process.env.NODE_ENV !== "production"
       ? [
-          await import("@replit/vite-plugin-cartographer").then((m) =>
-            m.cartographer({
-              root: path.resolve(import.meta.dirname, ".."),
-            }),
-          ),
-          await import("@replit/vite-plugin-dev-banner").then((m) =>
-            m.devBanner(),
-          ),
+          runtimeErrorOverlay(),
+          ...(process.env.REPL_ID !== undefined
+            ? [
+                await import("@replit/vite-plugin-cartographer").then((m) =>
+                  m.cartographer({
+                    root: path.resolve(import.meta.dirname, ".."),
+                  }),
+                ),
+                await import("@replit/vite-plugin-dev-banner").then((m) =>
+                  m.devBanner(),
+                ),
+              ]
+            : []),
         ]
       : []),
   ],
@@ -57,6 +60,27 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes("node_modules/react-dom")) return "vendor-react";
+          if (id.includes("node_modules/react/")) return "vendor-react";
+          if (id.includes("node_modules/react-helmet-async")) return "vendor-react";
+          if (id.includes("node_modules/wouter")) return "vendor-react";
+          if (id.includes("node_modules/scheduler")) return "vendor-react";
+          if (id.includes("node_modules/framer-motion")) return "vendor-motion";
+          if (id.includes("node_modules/@tanstack/react-query")) return "vendor-query";
+          if (id.includes("node_modules/@radix-ui")) return "vendor-ui";
+          if (id.includes("node_modules/class-variance-authority")) return "vendor-ui";
+          if (id.includes("node_modules/clsx")) return "vendor-ui";
+          if (id.includes("node_modules/tailwind-merge")) return "vendor-ui";
+          if (id.includes("node_modules/lucide-react")) return "vendor-icons";
+          if (id.includes("node_modules/@floating-ui")) return "vendor-ui";
+          if (id.includes("node_modules/cmdk")) return "vendor-ui";
+          if (id.includes("node_modules/recharts") || id.includes("node_modules/d3-")) return "vendor-charts";
+        },
+      },
+    },
   },
   server: {
     port,

@@ -48,7 +48,7 @@ export function OrganizationSchema() {
     name: "NexFortis IT Solutions",
     legalName: "17756968 Canada Inc.",
     url: "https://nexfortis.com",
-    logo: "https://nexfortis.com/images/logo-original.png",
+    logo: "https://nexfortis.com/images/logo-original.svg",
     description: "NexFortis delivers end-to-end IT solutions for Canadian businesses including managed IT, Microsoft 365, QuickBooks migration, digital marketing, and workflow automation.",
     contactPoint: {
       "@type": "ContactPoint",
@@ -160,7 +160,7 @@ export function ArticleSchema({ title, description, datePublished, dateModified,
     publisher: {
       "@type": "Organization",
       name: "NexFortis IT Solutions",
-      logo: { "@type": "ImageObject", url: "https://nexfortis.com/images/logo-original.png" },
+      logo: { "@type": "ImageObject", url: "https://nexfortis.com/images/logo-original.svg" },
     },
     author: {
       "@type": "Organization",

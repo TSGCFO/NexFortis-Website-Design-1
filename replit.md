@@ -99,6 +99,11 @@ NexFortis IT Solutions — complete business website for a Canadian IT solutions
   - Touch targets: min-h-[44px] on all mobile interactive elements
   - Animation durations optimized to 200-400ms range with easeOut curves
   - Footer contact links are clickable mailto:/tel: links
+  - **Performance**: Route-level code splitting via React.lazy/Suspense; Vite manualChunks for vendor-react, vendor-motion, vendor-query
+  - **Fonts**: Self-hosted Inter & Outfit (WOFF2 variable fonts in `public/fonts/`); no Google Fonts dependency (PIPEDA compliant)
+  - **Images**: hero-bg and about-team converted to WebP with `<picture>` fallbacks; logo uses SVG; non-hero images have `loading="lazy"`
+  - **PWA**: `public/manifest.json` linked in index.html with theme-color meta
+  - **Preloads**: Hero WebP image and font files preloaded in index.html
 
 ### `artifacts/qb-portal` (`@workspace/qb-portal`)
 
