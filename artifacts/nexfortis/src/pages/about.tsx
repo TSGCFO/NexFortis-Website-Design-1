@@ -60,18 +60,6 @@ export default function About() {
         </div>
       </Section>
 
-      <Section bg="secondary">
-        <SectionHeader title="Partnerships & Certifications" centered />
-        <div className="flex flex-wrap justify-center items-center gap-10">
-          <img
-            src={`${import.meta.env.BASE_URL}images/badges/microsoft-partner-badge.png`}
-            alt="Microsoft Authorized Partner"
-            className="h-10 w-auto max-w-[160px] object-contain"
-            onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
-          />
-        </div>
-      </Section>
-
       <Section bg="white">
         <SectionHeader title="Core Values" centered />
         <div className="max-w-4xl mx-auto grid sm:grid-cols-2 gap-y-10 gap-x-16">
@@ -96,6 +84,60 @@ export default function About() {
               </motion.div>
             );
           })}
+        </div>
+      </Section>
+
+      <Section bg="secondary">
+        <SectionHeader title="Partnerships & Certifications" centered />
+        <div className="max-w-5xl mx-auto grid sm:grid-cols-3 gap-10">
+          {[
+            {
+              src: "microsoft-partner-badge",
+              alt: "Microsoft AI Cloud Partner Program",
+              title: "Microsoft AI Cloud Partner Program",
+              desc: "As a member of the Microsoft AI Cloud Partner Program, NexFortis has demonstrated expertise across Microsoft 365, Azure, and Intune. This certification means our team meets Microsoft's rigorous standards for technical capability, service delivery, and customer success — giving you confidence that your cloud infrastructure is in qualified hands.",
+            },
+            {
+              src: "google-partner-badge",
+              alt: "Google Partner",
+              title: "Google Partner",
+              desc: "Our Google Partner status recognizes proven proficiency in Google Ads, Analytics, and the broader Google marketing ecosystem. For our clients, this translates to smarter ad spend, better campaign performance, and access to the latest Google tools and beta features before the general market.",
+            },
+            {
+              src: "quickbooks-proadvisor-badge",
+              alt: "QuickBooks Certified ProAdvisor",
+              title: "QuickBooks Certified ProAdvisor",
+              desc: "Our certified QuickBooks ProAdvisor team brings deep expertise in QuickBooks Online and Desktop setup, migration, and optimization. This Intuit-issued credential ensures our accountants and engineers can deliver accurate data migrations, custom reporting, and seamless integrations with your existing business systems.",
+            },
+          ].map((partner) => (
+            <motion.div
+              key={partner.src}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3 }}
+              className="text-center"
+            >
+              <div className="flex justify-center mb-6">
+                <img
+                  src={`${import.meta.env.BASE_URL}images/badges/${partner.src}.svg`}
+                  alt={partner.alt}
+                  className="h-14 w-auto max-w-[180px] object-contain"
+                  loading="lazy"
+                  onError={(e) => {
+                    const el = e.currentTarget as HTMLImageElement;
+                    if (!el.src.endsWith(".png")) {
+                      el.src = `${import.meta.env.BASE_URL}images/badges/${partner.src}.png`;
+                    } else {
+                      el.style.display = "none";
+                    }
+                  }}
+                />
+              </div>
+              <h3 className="text-lg font-bold text-primary mb-3">{partner.title}</h3>
+              <p className="text-muted-foreground leading-relaxed text-sm">{partner.desc}</p>
+            </motion.div>
+          ))}
         </div>
       </Section>
 

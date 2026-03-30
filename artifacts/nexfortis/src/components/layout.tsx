@@ -3,7 +3,6 @@ import { Link, useLocation } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown, Monitor, Database, Cloud, Cog, LayoutDashboard, ArrowRight, ArrowUp, Sun, Moon, MonitorSmartphone } from "lucide-react";
 import { useTheme } from "@/hooks/use-theme";
-import { GooglePartnerBadge } from "@/components/google-partner-badge";
 
 const services = [
   { name: "Digital Marketing", href: "/services/digital-marketing", icon: Monitor },
@@ -343,15 +342,28 @@ export function Layout({ children }: { children: ReactNode }) {
             </div>
           </div>
 
-          <div className="border-t border-primary-foreground/10 pt-8 mb-6 flex flex-wrap justify-center items-center gap-8">
-            <img
-              src={`${import.meta.env.BASE_URL}images/badges/microsoft-partner-badge.png`}
-              alt="Microsoft Authorized Partner"
-              className="h-8 w-auto max-w-[140px] object-contain opacity-70"
-              loading="lazy"
-              onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
-            />
-            <GooglePartnerBadge variant="footer" />
+          <div className="border-t border-primary-foreground/10 pt-8 pb-8 flex flex-wrap justify-center items-center gap-8">
+            {[
+              { src: "microsoft-partner-badge", alt: "Microsoft AI Cloud Partner Program" },
+              { src: "google-partner-badge", alt: "Google Partner" },
+              { src: "quickbooks-proadvisor-badge", alt: "QuickBooks Certified ProAdvisor" },
+            ].map((badge) => (
+              <img
+                key={badge.src}
+                src={`${import.meta.env.BASE_URL}images/badges/${badge.src}.svg`}
+                alt={badge.alt}
+                className="h-7 w-auto max-w-[120px] object-contain opacity-70"
+                loading="lazy"
+                onError={(e) => {
+                  const el = e.currentTarget as HTMLImageElement;
+                  if (!el.src.endsWith(".png")) {
+                    el.src = `${import.meta.env.BASE_URL}images/badges/${badge.src}.png`;
+                  } else {
+                    el.style.display = "none";
+                  }
+                }}
+              />
+            ))}
           </div>
 
           <div className="border-t border-primary-foreground/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-primary-foreground/50">

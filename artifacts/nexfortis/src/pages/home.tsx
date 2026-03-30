@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
-import { GooglePartnerBadge } from "@/components/google-partner-badge";
 import {
   ShieldCheck, Monitor, Cloud, Database, Cog, LayoutDashboard,
   ArrowRight, CheckCircle2, Users, Award, Clock, Globe,
@@ -224,23 +223,37 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-b border-border bg-background py-12" aria-label="Trust badges">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-sm font-semibold text-muted-foreground uppercase tracking-widest mb-8">
-            Certified Partners &amp; Trusted by Modern Canadian Businesses
+      <section
+        className="py-14 border-t border-b"
+        style={{ background: "#F8F8F9", borderColor: "#D1D2D4" }}
+        aria-label="Certified Technology Partner"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-sm font-semibold tracking-[0.15em] mb-10" style={{ color: "#A0A1A3", fontFamily: "'Alegreya Sans SC', var(--font-display), sans-serif", fontVariant: "all-small-caps" }}>
+            Certified Technology Partner
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24">
-            <img
-              src={`${import.meta.env.BASE_URL}images/badges/microsoft-partner-badge.png`}
-              alt="Microsoft Authorized Partner"
-              className="h-10 w-auto max-w-[160px] object-contain"
-              onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
-            />
-            <div className="flex items-center gap-3 font-display font-bold text-xl text-primary opacity-60">
-              <Database className="w-8 h-8 text-accent" aria-hidden="true" />
-              QuickBooks ProAdvisor
-            </div>
-            <GooglePartnerBadge />
+          <div className="flex flex-wrap justify-center items-center gap-12 md:gap-20">
+            {[
+              { src: "microsoft-partner-badge", alt: "Microsoft AI Cloud Partner Program" },
+              { src: "google-partner-badge", alt: "Google Partner" },
+              { src: "quickbooks-proadvisor-badge", alt: "QuickBooks Certified ProAdvisor" },
+            ].map((badge) => (
+              <img
+                key={badge.src}
+                src={`${import.meta.env.BASE_URL}images/badges/${badge.src}.svg`}
+                alt={badge.alt}
+                className="h-12 md:h-14 w-auto max-w-[180px] object-contain"
+                loading="lazy"
+                onError={(e) => {
+                  const el = e.currentTarget as HTMLImageElement;
+                  if (!el.src.endsWith(".png")) {
+                    el.src = `${import.meta.env.BASE_URL}images/badges/${badge.src}.png`;
+                  } else {
+                    el.style.display = "none";
+                  }
+                }}
+              />
+            ))}
           </div>
         </div>
       </section>
