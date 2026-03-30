@@ -305,6 +305,7 @@ export function Layout({ children }: { children: ReactNode }) {
                 />
               </Link>
               <p className="text-primary-foreground/70 mb-6 text-sm leading-relaxed">
+                <span className="font-semibold text-[#b76e79]">Complexity Decoded. Advantage.</span>{" "}
                 Your Business. Our Technology. Limitless Growth. NexFortis provides end-to-end IT solutions for Canadian businesses.
               </p>
             </div>
